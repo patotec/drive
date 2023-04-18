@@ -1,0 +1,227 @@
+s{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+<script type="text/javascript">
+    //// Get the CryptoCurrency Information from the API
+    jQuery.ajax({
+      url: "https://min-api.cryptocompare.com/data/pricemulti",
+      data: "fsyms=BTC,ETH,DASH,LTC&tsyms=USD",
+      dataType : 'json',
+    }).done(function(data) {
+      // console.log( "BTC : " + data.BTC.USD + ", ETH : " + data.ETH.USD + ", DASH : " + data.DASH.USD, LTC : " + data.LTC.USD);
+      jQuery(".dashCoin").html('$' + data.DASH.USD);
+      jQuery(".ethCoin").html('$' + data.ETH.USD);
+      jQuery(".bitCoin").html('$' + data.BTC.USD);
+      jQuery(".liteCoin").html('$' + data.LTC.USD);
+    }).fail(function() {
+      console.log( "API error" );
+    });
+  </script>
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+
+<div class="wrapper">
+
+
+
+	{% include 'acc/side.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container-full">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+          <div class="d-flex align-items-center">
+              <div class="me-auto">
+                  <h4 class="page-title">Crypto Summary</h4>
+                  <div class="d-inline-block align-items-center">
+                      <nav>
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                              <li class="breadcrumb-item" aria-current="page">Analyses</li>
+                              <li class="breadcrumb-item active" aria-current="page">Crypto Summary</li>
+                          </ol>
+                      </nav>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <!-- Main content -->
+      <section class="content">			
+          <div class="row">		
+            <div class="col-12">
+              <div class="box">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Daily Update</h4>
+                </div>
+                <div style="height:1259px; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38; padding: 0px; margin: 0px; width: 100%;"><div style="height:1239px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=full_v2&theme=dark&cnt=20&pref_coin_id=1505&graph=yes" width="100%" height="1235px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>	  
+              <div class="col-lg-3 col-md-6">
+                  <div class="box pull-up">
+                    <div class="box-body">
+                        <script type="text/javascript">
+                            baseUrl = "https://widgets.cryptocompare.com/";
+                            var scripts = document.getElementsByTagName("script");
+                            var embedder = scripts[ scripts.length - 1 ];
+                            var cccTheme = {"General":{"background":"#333","borderColor":"#545454","borderRadius":"4px 4px 0 0"},"Header":{"background":"#000","color":"#FFF"},"Followers":{"background":"#f7931a","color":"#FFF","borderColor":"#e0bd93","counterBorderColor":"#fdab48","counterColor":"#f5d7b2"},"Data":{"priceColor":"#FFF","infoLabelColor":"#CCC","infoValueColor":"#CCC"},"Chart":{"fillColor":"rgba(86,202,158,0.5)","borderColor":"#56ca9e"},"Conversion":{"background":"#000","color":"#999"}};
+                            (function (){
+                            var appName = encodeURIComponent(window.location.hostname);
+                            if(appName==""){appName="local";}
+                            var s = document.createElement("script");
+                            s.type = "text/javascript";
+                            s.async = true;
+                            var theUrl = baseUrl+'serve/v2/coin/chart?fsym=BTC&tsym=USD&period=1Y';
+                            s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                            embedder.parentNode.appendChild(s);
+                            })();
+                            </script>
+                            
+                  </div>
+                  <div class="box-footer p-0 no-border">
+                      <div class="chart"><canvas id="chartjs1" class="h-80"></canvas></div>
+                  </div>
+               </div>
+            </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="box pull-up">
+                    <div class="box-body">
+                        <script type="text/javascript">
+                            baseUrl = "https://widgets.cryptocompare.com/";
+                            var scripts = document.getElementsByTagName("script");
+                            var embedder = scripts[ scripts.length - 1 ];
+                            var cccTheme = {"General":{"background":"#333","borderColor":"#545454","borderRadius":"4px 4px 0 0"},"Header":{"background":"#000","color":"#FFF"},"Followers":{"background":"#f7931a","color":"#FFF","borderColor":"#e0bd93","counterBorderColor":"#fdab48","counterColor":"#f5d7b2"},"Data":{"priceColor":"#FFF","infoLabelColor":"#CCC","infoValueColor":"#CCC"},"Chart":{"fillColor":"rgba(86,202,158,0.5)","borderColor":"#56ca9e"},"Conversion":{"background":"#000","color":"#999"}};
+                            (function (){
+                            var appName = encodeURIComponent(window.location.hostname);
+                            if(appName==""){appName="local";}
+                            var s = document.createElement("script");
+                            s.type = "text/javascript";
+                            s.async = true;
+                            var theUrl = baseUrl+'serve/v2/coin/chart?fsym=ETH&tsym=USD&period=1Y';
+                            s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                            embedder.parentNode.appendChild(s);
+                            })();
+                            </script>
+                            
+                  </div>
+                  <div class="box-footer p-0 no-border">
+                      <div class="chart"><canvas id="chartjs2" class="h-80"></canvas></div>
+                  </div>
+               </div>
+            </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="box pull-up">
+                    <div class="box-body">
+                        <script type="text/javascript">
+                            baseUrl = "https://widgets.cryptocompare.com/";
+                            var scripts = document.getElementsByTagName("script");
+                            var embedder = scripts[ scripts.length - 1 ];
+                            var cccTheme = {"General":{"background":"#333","borderColor":"#545454","borderRadius":"4px 4px 0 0"},"Header":{"background":"#000","color":"#FFF"},"Followers":{"background":"#f7931a","color":"#FFF","borderColor":"#e0bd93","counterBorderColor":"#fdab48","counterColor":"#f5d7b2"},"Data":{"priceColor":"#FFF","infoLabelColor":"#CCC","infoValueColor":"#CCC"},"Chart":{"fillColor":"rgba(86,202,158,0.5)","borderColor":"#56ca9e"},"Conversion":{"background":"#000","color":"#999"}};
+                            (function (){
+                            var appName = encodeURIComponent(window.location.hostname);
+                            if(appName==""){appName="local";}
+                            var s = document.createElement("script");
+                            s.type = "text/javascript";
+                            s.async = true;
+                            var theUrl = baseUrl+'serve/v2/coin/chart?fsym=SUPER&tsym=USD&period=1Y';
+                            s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                            embedder.parentNode.appendChild(s);
+                            })();
+                            </script>
+                            
+                  </div>
+                  <div class="box-footer p-0 no-border">
+                      <div class="chart"><canvas id="chartjs3" class="h-80"></canvas></div>
+                  </div>
+               </div>
+            </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="box pull-up">
+                    <div class="box-body">
+                        <script type="text/javascript">
+                            baseUrl = "https://widgets.cryptocompare.com/";
+                            var scripts = document.getElementsByTagName("script");
+                            var embedder = scripts[ scripts.length - 1 ];
+                            var cccTheme = {"General":{"background":"#333","borderColor":"#545454","borderRadius":"4px 4px 0 0"},"Header":{"background":"#000","color":"#FFF"},"Followers":{"background":"#f7931a","color":"#FFF","borderColor":"#e0bd93","counterBorderColor":"#fdab48","counterColor":"#f5d7b2"},"Data":{"priceColor":"#FFF","infoLabelColor":"#CCC","infoValueColor":"#CCC"},"Chart":{"fillColor":"rgba(86,202,158,0.5)","borderColor":"#56ca9e"},"Conversion":{"background":"#000","color":"#999"}};
+                            (function (){
+                            var appName = encodeURIComponent(window.location.hostname);
+                            if(appName==""){appName="local";}
+                            var s = document.createElement("script");
+                            s.type = "text/javascript";
+                            s.async = true;
+                            var theUrl = baseUrl+'serve/v2/coin/chart?fsym=IMX&tsym=USD&period=1Y';
+                            s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+                            embedder.parentNode.appendChild(s);
+                            })();
+                            </script>
+                            
+                  </div>
+                  <div class="box-footer p-0 no-border">
+                      <div class="chart"><canvas id="chartjs4" class="h-80"></canvas></div>
+                  </div>
+               </div>
+            </div>			
+              <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Block Details</h4>
+                  </div>
+                  <div class="box-body">
+                    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="15" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Block Details</h4>
+                  </div>
+                  <div class="box-body">
+                    <div class="coinmarketcap-currency-widget" data-currencyid="11" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Block Details</h4>
+                  </div>
+                  <div class="box-body">
+                    <div class="coinmarketcap-currency-widget" data-currencyid="12" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+              </div>
+            
+            </div>	
+      </section>
+      <!-- /.content -->
+    </div>
+</div>
+  <!-- /.content-wrapper -->
+
+
+
+
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+
+
+
+	<!-- Page Content overlay -->
+
+
+</body>
+
+{% endblock content %}

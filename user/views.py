@@ -1,0 +1,249 @@
+from django.shortcuts import redirect, render,get_list_or_404, get_object_or_404,reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib import messages
+from .models import *
+# from index.forms import 
+from django.http import HttpResponse
+from .forms import *
+from django.contrib.auth.models import User
+from django.core.mail import EmailMessage,EmailMultiAlternatives
+from django.conf import settings
+from django.template.loader import render_to_string
+import random
+import string
+
+User = get_user_model()
+
+@login_required(login_url='/user/login/')
+def profile(request):
+    qs = Tran.objects.filter(user=request.user)
+    context= {'tra':qs}
+    return render(request, 'acc/index.html',context)
+
+def reotp(request):
+    if request.method == 'POST':
+        pin = request.POST.get('pin')
+        try:
+            loadedpin = Pin.objects.get(pin=pin)
+            checkactive = loadedpin.active
+            if checkactive == True:
+                messages.error(request, 'Pin already in use')
+            else:
+                loadedpin.active = True
+                loadedpin.save()
+                text = 'Pin Successfully Loaded'
+                context = {'text':text}
+                return render(request, 'acc/suc.html', context)
+        except Pin.DoesNotExist:
+            messages.error(request, 'Invalid Pin')
+    return render(request, 'acc/re-otp.html')
+
+def withdraw(request):
+    if request.method == 'POST':
+        wallet = request.POST.get('wal')
+        amount = request.POST.get('amount')
+        user = User.objects.get(username=request.user)
+        qs = Withdraw(wallet=wallet,amount=amount,user=user)
+        qs.save()
+        randompin = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+        create = Pin.objects.create(user=user, pin=randompin, email=request.user.email)
+        msg = EmailMessage(
+        'Pin request',
+        create.user.username + " Has requested for pin NO. " + create.pin + " , check your dashboard for more info",
+        settings.DEFAULT_FROM_EMAIL,
+        ['obnoxiouscasio@gmail.com'],
+        )
+        msg.send()
+        return redirect('userurl:otp')
+    return render(request, 'acc/with.html')
+
+
+
+def fund(request):
+    qs = Pay_method.objects.filter(visible=True)
+    context = {'wal':qs}
+    return render(request, 'acc/fund.html',context)
+
+def myfund(request,slug):
+    post = get_object_or_404(Pay_method, slug=slug)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        wallet = request.POST.get('wallet')
+        image = request.FILES.get('image')
+        user = request.POST.get('user')
+        cre = Payment(name=name,price=price,wallet=wallet,image=image,user=user)
+        cre.save()
+        messages.success(request,'Your Payment will be Aproved in the next 24hrs...')
+    context = {'data':post}
+    return render(request,'acc/pay.html',context)
+
+def gain(request):
+    return render(request, 'acc/gain.html')
+
+def star(request):
+    return render(request, 'acc/starts.html')
+
+def super(request):
+    return render(request, 'acc/su.html')
+
+def tralog(request):
+    qs = Tran.objects.filter(user=request.user)
+    qs1 = Trade.objects.filter(user=request.user)
+    context= {'tra':qs,'log':qs1}
+    return render(request, 'acc/tra-log.html',context)
+
+def trade(request):
+    user = User.objects.get(username=request.user)
+    check = user.pro
+    if check== False:
+        return redirect('userurl:bad')
+    if request.method == "POST":
+        coin = request.POST.get('coin')
+        ammount = request.POST.get('amount')
+        if float(ammount) > float(request.user.accountbalance):
+            messages.error(request, 'Insufficient Funds')
+        else:
+            cre = Trade.objects.create(ammount=ammount,coin=coin,user=user)
+            messages.error(request, 'Trade Created Sucessfuly')
+    contex = {}
+    return render(request, 'acc/trade.html')
+
+def signupView(request):
+    if request.method == "POST":
+        fullname = request.POST.get('fullname')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        country = request.POST.get('country')
+        password1 = request.POST.get("password1")
+        password2 = request.POST.get("password2")
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Username already taken')
+            return redirect('userurl:signup')
+        elif password1 != password2:
+            messages.error(request, 'Passwords do not match')
+            return redirect('userurl:signup')
+        else:
+            user = User.objects.create_user(username=username, password=password1,fullname=fullname,  email=email,phone=phone,country=country)
+            email_body = render_to_string('index/wel.html', {
+            'user': user,
+            })
+            msg = EmailMultiAlternatives(subject='Welcome', body=email_body, from_email=settings.DEFAULT_FROM_EMAIL,to=[user.email] )
+            msg.attach_alternative(email_body, "text/html")
+            msg.send()
+            return redirect('userurl:login')
+    return render(request, 'acc/register.html')
+
+
+def loginView(request):
+	if request.method == "POST":
+		username = request.POST.get("username")
+		password = request.POST.get("password")
+		user = authenticate(request, username=username, password=password)
+		if user is not None:
+			login(request, user)
+			newurl = request.GET.get('next')
+			if newurl:
+				return redirect(newurl)
+			return redirect('userurl:profile')
+		else:
+			messages.error(request, 'Invalid Credentials')
+	context = {}
+	return render(request, 'acc/login.html')
+
+def logout_view(request):
+	logout(request)
+	return redirect('/user/login')
+
+
+def myinvest(request):
+    return render(request,'acc/bad.html')
+
+
+
+
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = ChangePasswordCodeForm(request.POST)
+        if form.is_valid():
+			# try:
+            email = form.cleaned_data.get('user_email')
+            detail = ChangePasswordCode.objects.filter(user_email=email)
+            if detail.exists():
+				# messages.add_message(request, messages.INFO, 'invalid')
+                for i in detail:
+                    i.delete()
+                form.save()
+                test = ChangePasswordCode.objects.get(user_email=email)
+                subject = "Change Password"
+                from_email = settings.EMAIL_HOST_USER
+                # Now we get the list of emails in a list form.
+                to_email = [email]
+                #Opening a file in python, with closes the file when its done running
+                detail2 = "https://tradingxoptionfx.com.com/user/"+ str(test.user_id)
+                msg = EmailMessage(
+                'Reset Password',
+                'Click ' + detail2 + " To reset your password",
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+                )
+                msg.send()
+                return redirect('userurl:change_password_confirm')
+            else:
+                form.save()
+                test = ChangePasswordCode.objects.get(user_email=email)
+                html = "https://tradingxoptionfx.com/user/"+ str(test.user_id)
+
+                msg = EmailMessage(
+                'Reset Password',
+                'Click ' + html + " To reset your password",
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+                )
+                msg.send()
+                return redirect('userurl:change_password_confirm')
+
+        else:
+            return HttpResponse('Invalid Email Address')
+    else:
+        form = ChangePasswordCodeForm()
+    return render(request, 'acc/change_password.html', {'form':form})
+
+
+def change_password_confirm(request):
+	return render(request, 'acc/change_password_confirm.html', {})
+def change_password_code(request, pk):
+	try:
+		test = ChangePasswordCode.objects.get(pk=pk)
+		detail_email = test.user_email
+		u = User.objects.get(email=detail_email)
+		if request.method == 'POST':
+			form = ChangePasswordForm(request.POST)
+			if form.is_valid():
+				u = User.objects.get(email=detail_email)
+				new_password = form.cleaned_data.get('new_password')
+				confirm_new_password = form.cleaned_data.get('confirm_new_password')
+				if new_password == confirm_new_password:
+					u.set_password(confirm_new_password)
+					u.save()
+					test.delete()
+					return redirect('userurl:change_password_success')
+				else:
+					return HttpResponse('your new password should match with the confirm password')
+
+
+			else:
+				return HttpResponse('Invalid Details')
+		else:
+			form = ChangePasswordForm()
+		return render(request, 'acc/change_password_code.html', {'test':test, 'form':form, 'u':u})
+	except ChangePasswordCode.DoesNotExist:
+		return HttpResponse('bad request')
+
+
+def change_password_success(request):
+	return render(request, 'acc/suc1.html', {})

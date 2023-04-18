@@ -1,0 +1,127 @@
+{% load static  %}
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<!-- Mirrored from html.dreamitsolution.net/cryptobit/trading/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Mar 2023 10:26:32 GMT -->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>crypto</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="/static/assets/images/fav-icon/icon.png">
+	<!-- bootstrap CSS -->
+	<link rel="stylesheet" href="/static/assets/css/bootstrap.min.css" type="text/css" media="all" />
+	<!-- carousel CSS -->
+	<link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css" type="text/css" media="all" />	
+	<!-- nivo-slider CSS -->
+	<link rel="stylesheet" href="/static/assets/css/nivo-slider.css" type="text/css" media="all" />
+	<!-- animate CSS -->
+	<link rel="stylesheet" href="/static/assets/css/animate.css" type="text/css" media="all" />	
+	<!-- animated-text CSS -->
+	<link rel="stylesheet" href="/static/assets/css/animated-text.css" type="text/css" media="all" />	
+	<!-- font-awesome CSS -->
+	<link rel="stylesheet" href="/static/assets/css/all.min.css" type="text/css" media="all" />	
+	<!-- font-flaticon CSS -->
+	<link rel="stylesheet" href="/static/assets/css/flaticon.css" type="text/css" media="all" />	
+	<!-- theme-default CSS -->
+	<link rel="stylesheet" href="/static/assets/css/theme-default.css" type="text/css" media="all" />	
+	<!-- meanmenu CSS -->
+	<link rel="stylesheet" href="/static/assets/css/meanmenu.min.css" type="text/css" media="all" />	
+	<link rel="stylesheet" href="/static/assets/css/font-awesome.min.css" type="text/css" media="all" />	
+	<!-- Main Style CSS -->
+	<link rel="stylesheet"  href="/static/style.css" type="text/css" media="all" />
+	<!-- transitions CSS -->
+	<link rel="stylesheet" href="/static/assets/css/owl.transitions.css" type="text/css" media="all" />
+	<!-- venobox CSS -->
+	<link rel="stylesheet" href="/static/venobox/venobox.css" type="text/css" media="all" />
+	<!-- widget CSS -->
+	<link rel="stylesheet" href="/static/assets/css/widget.css" type="text/css" media="all" />
+	<!-- responsive CSS -->
+	<link rel="stylesheet" href="/static/assets/css/responsive.css" type="text/css" media="all" />
+	<!-- modernizr js -->	
+	<script src="/static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+	
+</head>
+<div class="main-header upper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="sticky-header" class="nav-menu">
+                    <div class="header-logo">
+                        <a href=""><img src="/static/kul.jpg" width="100" alt=""></a>
+                        <a class="main_sticky" href=""><img src="/static/kul.jpg" width="100" alt=""></a>
+                    </div>
+                    <div class="heder-menu">
+                        <ul>
+                            <li><a href="{% url 'indexurl:index' %}">home</a>
+                              
+                            </li>
+                            <li><a href="{% url 'indexurl:about' %}">about</a></li>
+                            <li><a href="{% url 'indexurl:service' %}">services +</a>
+                              
+                            </li>
+                          
+                        
+                            <li><a href="{% url 'indexurl:contact' %}">contact </a></li>	
+                        </ul>
+                        {% if user.is_authenticated %}
+                        <div class="menu-button">
+                            <a href="{% url 'userurl:profile' %}">{{user.username}}</a>
+                        </div>
+                        {% else %}
+                         <div class="menu-button">
+                            <a href="{% url 'userurl:login' %}">Login</a>
+                        </div>
+                        <div class="menu-button">
+                            <a href="{% url 'userurl:signup' %}">Signup</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Start - Mobile-Menu- Section -->
+<!-- ============================================================= -->
+<div class="mobile-menu-area d-sm-block d-md-block d-lg-none ">
+<div class="mobile-menu">
+    <nav class="itsoft_menu">
+        <ul class="nav_scroll">
+            <li><a href="{% url 'indexurl:index' %}">home </a>
+               
+            </li>
+            <li><a href="{% url 'indexurl:about' %}">about</a></li>
+            <li><a href="{% url 'indexurl:service' %}">services +</a>
+               
+            </li>
+          
+            
+            <li><a href="{% url 'indexurl:contact' %}">contact </a></li>	
+            <li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'userurl:profile' %}">{{user.username}} </a></li>	
+                {% else %}
+                <li><a href="{% url 'userurl:login' %}">login</a></li>	
+                <li><a href="{% url 'userurl:signup' %}">Signup </a></li>	
+                {% endif %}
+            </li>
+          
+        </ul>
+      
+    </nav>
+</div>
+</div>
+
+
+
+
+    
+
+ 
+
+  

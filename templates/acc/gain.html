@@ -1,0 +1,222 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+
+<div class="wrapper">
+
+
+
+	{% include 'acc/side.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container-full">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+          <div class="d-flex align-items-center">
+              <div class="me-auto">
+                  <h4 class="page-title">Top Gainers/Losers</h4>
+                  <div class="d-inline-block align-items-center">
+                      <nav>
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                              <li class="breadcrumb-item" aria-current="page">Analyses</li>
+                              <li class="breadcrumb-item active" aria-current="page">Top Gainers/Losers</li>
+                          </ol>
+                      </nav>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <!-- Main content -->
+      <section class="content">			
+          <div class="row">
+              <div class="col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Daily Update</h4>
+                  </div>
+                  <div class="box-body">
+                      <div class="table-responsive">
+                        <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/currencies/" rel="noopener" target="_blank"><span class="blue-text">Forex market</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+    {
+    "width": "100%",
+    "height": "1000",
+    "currencies": [
+      "EUR",
+      "USD",
+      "JPY",
+      "GBP",
+      "CHF",
+      "AUD",
+      "CAD",
+      "NZD",
+      "CNY",
+      "TRY",
+      "SEK",
+      "NOK",
+      "DKK",
+      "ZAR",
+      "HKD",
+      "SGD",
+      "THB",
+      "MXN",
+      "IDR",
+      "KRW",
+      "PLN"
+    ],
+    "isTransparent": false,
+    "colorTheme": "dark",
+    "locale": "en"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+                      </div>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Daily Top Gainers</h4>
+                  </div>
+                  <div class="box-body">
+                     <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+   <div class="tradingview-widget-container__widget"></div>
+   <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/key-events/" rel="noopener" target="_blank"><span class="blue-text">Daily news roundup</span></a> by TradingView</div>
+   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+   {
+   "feedMode": "all_symbols",
+   "colorTheme": "dark",
+   "isTransparent": false,
+   "displayMode": "regular",
+   "width": 480,
+   "height": 830,
+   "locale": "en"
+ }
+   </script>
+ </div>
+ <!-- TradingView Widget END -->
+                  </div>
+                  <!-- /.box-body -->
+            </div>
+                <!-- /.box -->
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Latest Transactions</h4>
+                  </div>
+                  <div class="box-body">
+                      <div class="table-responsive">
+                          <table class="table table-bordered no-margin">
+                            <thead>
+                              <tr>
+                                 <th class="text-center">#</th>
+                                 <th>Name</th>
+                                 <th class="text-end">Price</th>
+                                 <th class="text-end">Mkt. Cap</th>
+                                 <th class="text-end">Change</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                 <td class="text-center">1</td>
+                                 <td><a href="#" class="hover-warning">ADA</a></td>
+                                 <td class="text-end"><span>$</span> 0.45</td>
+                                 <td class="text-end"><span>$</span> 40,453,416</td>
+                                 <td class="text-end"><span class="label label-danger">3213.54 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">2</td>
+                                 <td><a href="#" class="hover-warning">AMP-alt</a></td>
+                                 <td class="text-end"><span>$</span> 0.123</td>
+                                 <td class="text-end"><span>$</span> 465,244</td>
+                                 <td class="text-end"><span class="label label-danger">123.00 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">3</td>
+                                 <td><a href="#" class="hover-warning">ARK</a></td>
+                                 <td class="text-end"><span>$</span> 0.13</td>
+                                 <td class="text-end"><span>$</span> 45,465</td>
+                                 <td class="text-end"><span class="label label-danger">13.78 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">4</td>
+                                 <td><a href="#" class="hover-warning">BSD-alt</a></td>
+                                 <td class="text-end"><span>$</span> 0.564</td>
+                                 <td class="text-end"><span>$</span> 31,117,925</td>
+                                 <td class="text-end"><span class="label label-danger">132.04 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">5</td>
+                                 <td><a href="#" class="hover-warning">BTC</a></td>
+                                 <td class="text-end"><span>$</span> 0.45</td>
+                                 <td class="text-end"><span>$</span> 45,213,631</td>
+                                 <td class="text-end"><span class="label label-danger">132.97 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">6</td>
+                                 <td><a href="#" class="hover-warning">DAO</a></td>
+                                 <td class="text-end"><span>$</span> 0.78</td>
+                                 <td class="text-end"><span>$</span> 12,592,274</td>
+                                 <td class="text-end"><span class="label label-danger">456.72 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">7</td>
+                                 <td><a href="#" class="hover-warning">DMD</a></td>
+                                 <td class="text-end"><span>$</span> 0.45</td>
+                                 <td class="text-end"><span>$</span> 54,124,540</td>
+                                 <td class="text-end"><span class="label label-danger">453.81 %</span></td>
+                              </tr>
+                              <tr>
+                                 <td class="text-center">8</td>
+                                 <td><a href="#" class="hover-warning">EMC</a></td>
+                                 <td class="text-end"><span>$</span> 1.345</td>
+                                 <td class="text-end"><span>$</span> 543,54,392</td>
+                                 <td class="text-end"><span class="label label-danger">13.80 %</span></td>
+                              </tr>
+                             </tbody>
+                          </table>
+                      </div>
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+              </div>
+            </div>	
+      </section>
+      <!-- /.content -->
+    </div>
+</div>
+  <!-- /.content-wrapper -->
+
+
+
+
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+
+
+
+	<!-- Page Content overlay -->
+
+
+</body>
+
+{% endblock content %}

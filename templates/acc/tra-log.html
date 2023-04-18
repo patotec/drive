@@ -1,0 +1,148 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+
+<div class="wrapper">
+
+
+
+	{% include 'acc/side.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container-full">
+      <!-- Content Header (Page header) -->	  
+      <div class="content-header">
+          <div class="d-flex align-items-center">
+              <div class="me-auto">
+                  <h4 class="page-title">Table</h4>
+                  <div class="d-inline-block align-items-center">
+                      <nav>
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                              <li class="breadcrumb-item" aria-current="page">Transactions</li>
+                              <li class="breadcrumb-item active" aria-current="page">Table</li>
+                          </ol>
+                      </nav>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+
+      <!-- Main content -->
+      <section class="content">
+          <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Latest Transactions</h4>
+                  </div>
+                  <div class="box-body">
+                      <div class="table-responsive">
+                          <table class="table no-margin table-hover">
+                            <thead>
+                                <tr>
+                                  <th>Transaction Hash</th>
+                                  <th>Amount</th>
+                                  <th>Time</th>
+                                  <th>Status</th>
+                                  <th>Loss/Profit</th>
+                                </tr>
+                              </thead>
+                            <tbody>
+                                {%  for i in tra %}
+                                <tr>
+                                  <td>
+                                    <a href="#" class="text-warning hover-warning">
+                                      {{i.hash}}
+                                    </a>
+
+                                  </td>
+                                  <td>{{i.amount}}</td>
+                                  <td>
+                                    <time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{i.time}}</time>
+                                  </td>
+                                  <td>{{i.status}}</td>
+                                  {% if i.loss %}
+                                  <td><span class="label label-danger">Loss</span></td>
+                                  {%  else %}
+                                  <td><span class="label label-success">Confirmed</span></td>
+                                  {% endif %}
+                                </tr>
+                                {% endfor %}
+
+                             
+                            </tbody>
+                          </table>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Recent Trade</h4>
+                  </div>
+                  <div class="box-body">
+                      <div class="table-responsive">
+                          <table class="table no-margin">
+                            <thead>
+                              <tr>
+                               
+                                <th>Time</th>
+                                <th>Coin-Type</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                               
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in log %}
+                              <tr>
+                               
+                                <td>{{i.time}}</td>
+                                <td>{{i.coin}}</td>
+                                <td>{{i.ammount}}</td>
+                                <td>{{i.date}}</td>
+                              
+                              </tr>
+                              {% empty %}
+                              <h1>NO TRADE YET</h1>
+                              {% endfor %}
+
+
+                            </tbody>
+                          </table>
+                      </div>
+                  </div>
+                </div>	
+            </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    
+    </div>
+</div>
+  <!-- /.content-wrapper -->
+
+
+
+
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+
+
+
+	<!-- Page Content overlay -->
+
+
+</body>
+
+{% endblock content %}

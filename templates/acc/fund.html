@@ -1,0 +1,130 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+	
+<div class="wrapper">
+	<div id="loader"></div>
+
+    {% include 'acc/side.html' %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Content Header (Page header) -->	  
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="me-auto">
+					<h4 class="page-title">Deposite</h4>
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item active" aria-current="page">Payment Methods</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+			
+				<div class="col-xl-6 col-12">
+					<div class="box">
+						<div class="box-header">
+							<h4 class="box-title">
+								Deposite Method
+							</h4>
+						</div>
+						<div class="box-body p-0">
+							<div>
+                                {% for i in wal %}
+								<div class="d-flex bb-1 py-10 px-15">
+									<div><i class="cc BTC"></i></div>
+									<div>
+										<h4 class="mb-0">{{i.name}}</h4>
+										
+										<div>
+											<a href="{% url 'userurl:payment' i.slug %}"><button type="button" class="waves-effect waves-light btn btn-outline btn-primary mb-5"><i class="fa fa-paper-plane"></i>Proceed</button></a>
+										
+										</div>
+									</div>
+								</div>
+                                {% endfor %}
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>				
+				<div class="col-xl-6 col-12">
+					<div class="box">
+						
+					<div class="box-body">
+						<div class="tab-content">
+							<div class="tab-pane active" id="tabid1" role="tabpanel">
+								<h4 class="box-title mb-15">Currency</h4>
+								<div class="row bb-1 pb-15 mb-15">
+								
+									
+									<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script><div id="coinmarketcap-widget-coin-price-block" coins="1,1027,8290,10603" currency="USD" theme="dark" transparent="false" show-symbol-logo="true"></div>
+								</div>
+								
+								
+								
+							
+							</div>
+							<div class="tab-pane" id="tabid2" role="tabpanel">
+								
+							
+							</div>
+						</div>
+					</div>
+				  </div>
+				</div>
+				
+				<div class="col-12 col-lg-4">
+					<div class="box box-body pull-up">
+						<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
+						<div class="coinmarketcap-currency-widget" data-currencyid="1" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+					</div>			
+				</div>
+				<div class="col-12 col-lg-4">
+					<div class="box box-body pull-up">
+						<div class="coinmarketcap-currency-widget" data-currencyid="2" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+					</div>			
+				</div>
+				<div class="col-12 col-lg-4">
+					<div class="box box-body pull-up">
+						<div class="coinmarketcap-currency-widget" data-currencyid="9" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+					</div>			
+				</div>
+			</div>
+		</section>
+		<!-- /.content -->
+	  
+	  </div>
+  </div>
+  <!-- /.content-wrapper -->
+ 
+ 
+ 
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+	
+	
+	<!-- Page Content overlay -->
+	
+	
+	
+	
+
+</body>
+
+{% endblock content %}

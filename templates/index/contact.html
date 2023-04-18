@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+<!--==================================================-->
+<!-- Start breadcumb-area -->
+<!--==================================================-->
+<div class="breadcumb-area style-two d-flex align-items-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breacumb-content">
+					<div class="breadcumb-title">
+						<h1>contact us</h1>
+					</div>
+					<div class="breadcumb-content-text">
+						<a href="index.html"><span> home</span> contact us</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--==================================================-->
+<!-- Start info-area -->
+<!--==================================================-->
+<div class="info-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="single-info-box">
+					<div class="info-icon">
+						<i class="fas fa-map-marker-alt"></i>
+					</div>
+					<div class="info-area-title">
+						<h3>Address Ifno</h3>
+						<p>3281 Steve Hunts, Market <br> Florida, FL 33176</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="single-info-box">
+					<div class="info-icon">
+						<i class="fas fa-phone-alt"></i>
+					</div>
+					<div class="info-area-title">
+						<h3>Phone Calls</h3>
+						<p>+98 (5784) 123 789 <br> +88 (3412) 876 346</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="single-info-box">
+					<div class="info-icon">
+						<i class="fas fa-envelope"></i>
+					</div>
+					<div class="info-area-title">
+						<h3>E-Mail Address</h3>
+						<p>example@gmail.com <br> yourmail@yahoo.com</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--==================================================-->
+<!-- Start footer-area -->
+<!--==================================================-->
+<div class="contact-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="sections-title">
+					<div class="sub-title">
+						<h3>contacts</h3>
+					</div>
+					<div class="main-title">
+						<h1>Write Us Something</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="single-contact-box">
+					<div class="contact-thumb">
+						<img src="/static/assets/images/contact.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<div class="singles-contacts-box">
+					<div class="contact-title">
+						<h3>get in touch</h3>
+					</div>
+					<form action="https://formspree.io/f/myyleorq" method="POST" id="dreamit-form">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<div class="form_box">
+								<input type="text" name="name" placeholder="Name">
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div class="form_box">
+								<input type="text" name="Enter E-mail" placeholder="Enter E-Mail">
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12">
+							<div class="form_box">
+								<input type="text" name="subject" placeholder="Subject">
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12">
+							<div class="form_box">
+								<textarea name="massage" id="massage" cols="30" rows="10" placeholder="Massage"></textarea>
+							</div>
+							<div class="form-button">
+								<button type="submit">Send Message</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div id="status"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--==================================================-->
+<!-- Start footer-area -->
+
+
+
+<script>
+$(document).ready(function(){
+
+$('.aa').counterUp({
+    delay: 10,
+    time: 1000
+});
+
+
+});
+</script>
+
+	<script>
+		(function($) {
+    $('.accordion > li:eq(0) a').addClass('active').next().slideDown();
+
+    $('.accordion a').click(function(j) {
+        var dropDown = $(this).closest('li').find('p');
+
+        $(this).closest('.accordion').find('p').not(dropDown).slideUp();
+
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).closest('.accordion').find('a.active').removeClass('active');
+            $(this).addClass('active');
+        }
+
+        dropDown.stop(false, true).slideToggle();
+
+        j.preventDefault();
+    });
+})(jQuery);
+	</script>
+	
+</body>
+
+{% endblock content %}

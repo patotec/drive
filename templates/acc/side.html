@@ -1,0 +1,120 @@
+  <aside class="main-sidebar">
+    <!-- sidebar-->
+    <section class="sidebar position-relative">	
+	  	<div class="multinav">
+		  <div class="multinav-scroll" style="height: 100%;">	
+			  <!-- sidebar menu-->
+			  <ul class="sidebar-menu" data-widget="tree">	
+				<li class="">
+				  <a href="{% url 'userurl:profile' %}">
+					<i data-feather="monitor"></i><span>Dashboard</span>					  
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				 
+				</li>				  
+				<li class="">
+				  <a href="{% url 'userurl:depo' %}">
+					<i data-feather="cpu"></i>
+					<span>Deposit</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				 
+				</li>
+				<li class="">
+					<a href="{% url 'userurl:super' %}">
+					  <i data-feather="cpu"></i>
+					  <span>Derivatives</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+				   
+				  </li>
+				<li class="">
+					<a href="{% url 'userurl:gain' %}">
+					  <i data-feather="cpu"></i>
+					  <span>Explore</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+				   
+				  </li>
+				  <li class="">
+					<a href="{% url 'userurl:trade' %}">
+					  <i data-feather="cpu"></i>
+					  <span>Advance Trade</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+				   
+				  </li>
+				  <li class="">
+					<a href="{% url 'userurl:trade-log' %}">
+					  <i data-feather="cpu"></i>
+					  <span>Trade-logs</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+				   
+				  </li>
+				  <li class="">
+					<a href="{% url 'userurl:star' %}">
+					  <i data-feather="cpu"></i>
+					  <span>Market</span>
+					  <span class="pull-right-container">
+						<i class="fa fa-angle-right pull-right"></i>
+					  </span>
+					</a>
+				   
+				  </li>
+
+				<li class="">
+				  <a href="{% url 'userurl:with' %}">
+					<i data-feather="grid"></i>
+					<span>Withdraw</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				
+				</li>
+			
+
+				<li class="">
+				  <a href="{% url 'userurl:logout' %}">
+					<i data-feather="lock"></i>
+					<span>Logout</span>
+					<span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+				  </a>
+				
+				</li> 
+			
+			  </ul>
+			  
+			  <div class="sidebar-widgets">	
+				<div class="mx-25 mb-30 pb-20 side-bx bg-primary rounded20">
+					<div class="text-center">
+						<img src="/static/images/crypto-join.png" class="sideimg" alt="">
+						<h3 class="title-bx">Invest Now!</h3>
+						<a href="{% url 'userurl:depo' %}" class="text-white py-10 fs-16 mb-0">
+						Buy and Sell Coins<i class="mdi mdi-arrow-right"></i>
+						</a>
+					</div>
+				</div>  
+				<div class="copyright text-start m-25">
+				<p><strong class="d-block">Specie Admin Admin</strong> © <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p>
+				</div>
+			  </div>
+		  </div>
+		</div>
+    </section>
+  </aside>
