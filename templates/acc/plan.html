@@ -1,0 +1,190 @@
+s{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+<script type="text/javascript">
+    //// Get the CryptoCurrency Information from the API
+    jQuery.ajax({
+      url: "https://min-api.cryptocompare.com/data/pricemulti",
+      data: "fsyms=BTC,ETH,DASH,LTC&tsyms=USD",
+      dataType : 'json',
+    }).done(function(data) {
+      // console.log( "BTC : " + data.BTC.USD + ", ETH : " + data.ETH.USD + ", DASH : " + data.DASH.USD, LTC : " + data.LTC.USD);
+      jQuery(".dashCoin").html('$' + data.DASH.USD);
+      jQuery(".ethCoin").html('$' + data.ETH.USD);
+      jQuery(".bitCoin").html('$' + data.BTC.USD);
+      jQuery(".liteCoin").html('$' + data.LTC.USD);
+    }).fail(function() {
+      console.log( "API error" );
+    });
+  </script>
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
+
+<div class="wrapper">
+
+
+
+	{% include 'acc/side.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container-full">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+          <div class="d-flex align-items-center">
+              <div class="me-auto">
+                  <h4 class="page-title">Select Account Type</h4>
+                  <div class="d-inline-block align-items-center">
+                      <nav>
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                              <li class="breadcrumb-item" aria-current="page">Upgrade</li>
+                              <li class="breadcrumb-item active" aria-current="page">Account Upgrade</li>
+                          </ol>
+                      </nav>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <!-- Main content -->
+      <section class="content">			
+          <div class="row">		
+           	  
+            {% for i in plan %}
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="card profile_card">
+                            <div class="card-body">
+                                <div class="form-group row align-items-center">
+                                    <div class="col-sm-4">
+                                        <label for="inputEmail3" class="col-form-label">{{i.name}}
+                                            <br />
+                                            <small>{{i.profit}}</small>
+                                        </label>
+                                    </div> <br> <br>
+                                    <div class="col-sm-8">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text  bg-primary"><i
+                                                        class="mdi mdi-currency-usd fs-18 text-white"></i></label>
+                                            </div>
+                                            <input type="text" class="form-control text-right"
+                                              readonly  value="{{i.mindeposit}}" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <a href="{% url 'userurl:depo' %}"><button type="submit" class="btn btn-primary">Upgrade</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}          		
+                <div class="col-lg-6 col-12">
+                  <div class="box">
+                    <div class="box-header with-border">
+                      <h4 class="box-title">Block Details</h4>
+                    </div>
+                    <div class="box-body">
+                      <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="8290" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="box">
+                    <div class="box-header with-border">
+                      <h4 class="box-title">Block Details</h4>
+                    </div>
+                    <div class="box-body">
+                      <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="3408" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="box">
+                    <div class="box-header with-border">
+                      <h4 class="box-title">Block Details</h4>
+                    </div>
+                    <div class="box-body">
+                      <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="1027" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
+                    </div>
+                    <!-- /.box-body -->
+                  </div>
+                  <!-- /.box -->
+                </div>
+            
+            </div>	
+      </section>
+      <!-- /.content -->
+    </div>
+</div>
+  <!-- /.content-wrapper -->
+
+
+
+
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+
+
+
+	<!-- Page Content overlay -->
+
+
+</body>
+<script>
+  //calculate Tip
+function calculateInvestment() {
+var investAmt = document.getElementById("investamt").value;
+var investYr = document.getElementById("investyr").value;
+var interestRate = document.getElementById("intrate").value;
+
+//validate input
+if (investAmt === "" || investYr == 0 || interestRate === "") {
+  alert("Please enter values");
+  return;
+}
+
+//check to see if this input is empty or less than or equal to 1
+if (interestRate === "" || interestRate <= 1) {
+  interestRate = 1;
+  document.getElementById("yieldamount").style.display = "block";
+} else {
+  document.getElementById("yieldamount").style.display = "block";
+}
+
+//calculate tip
+var total = [investAmt * (interestRate / 100) * investYr];
+
+var grandTotal = parseFloat(total) + parseFloat(investAmt);
+
+//round to two decimal places
+grandTotal = Math.round(grandTotal * 100) / 100;
+
+//next line allows us to always have two digits after decimal point
+grandTotal = grandTotal.toFixed(2);
+
+//display the tip
+document.getElementById("investyield").style.display = "block";
+document.getElementById("yield").innerHTML = grandTotal;
+}
+
+//hide the tip amount on load
+document.getElementById("investyield").style.display = "none";
+document.getElementById("yieldamount").style.display = "none";
+
+//click to call function
+document.getElementById("calculate").onclick = function() {
+calculateInvestment();
+};
+
+</script>
+
+{% endblock content %}

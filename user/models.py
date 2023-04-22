@@ -16,8 +16,12 @@ class CustomUser(AbstractUser):
     total_deposit = models.CharField(max_length=50,default='0')
     referal = models.CharField(max_length=50,default='0')
     total_withdrawal = models.CharField(max_length=50,default='0')
-    pair = models.CharField(max_length=50,default='BTC/USDT',blank=True)
+    rank = models.CharField(max_length=50,default='Beginner',blank=True)
     pro = models.BooleanField(default=False)
+    is_email_verified = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.username
     
     def __str__(self):
         return self.username
@@ -122,5 +126,12 @@ class Plan(models.Model):
     mindeposit = models.CharField(max_length=50,default='0')
     maxdeposit = models.CharField(max_length=50,default='0')
     duration = models.CharField(max_length=50,default='0')
+    def __str__(self):
+        return self.name
+
+class Upgrade(models.Model):
+    name = models.CharField(max_length=50,default='0')
+    profit = models.CharField(max_length=50,default='0')
+    mindeposit = models.CharField(max_length=50,default='0')
     def __str__(self):
         return self.name

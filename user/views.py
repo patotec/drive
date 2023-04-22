@@ -79,11 +79,29 @@ def myfund(request,slug):
     context = {'data':post}
     return render(request,'acc/pay.html',context)
 
-def gain(request):
-    return render(request, 'acc/gain.html')
+def gain(request,id):
+    qs = Sta.objects.filter(user=request.user)
+    post = get_object_or_404(Stake,id=id)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        wallet = request.POST.get('wal')
+        user = User.objects.get(username=request.user)
+        cre = Sta(name=name,price=price,wallet=wallet,user=user)
+        cre.save()
+        messages.success(request,'Your Payment will be Aproved in the next 24hrs...')
+    context = {'data':post,'tra':qs}
+    return render(request, 'acc/gain.html',context)
+
+def plan(request):
+    qs = Upgrade.objects.all()
+    context = {'plan':qs}
+    return render(request, 'acc/plan.html',context)
 
 def star(request):
-    return render(request, 'acc/starts.html')
+    qs = Stake.objects.all()
+    context = {'stake':qs}
+    return render(request, 'acc/starts.html',context)
 
 def super(request):
     return render(request, 'acc/su.html')

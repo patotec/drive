@@ -34,57 +34,62 @@
       <!-- Main content -->
       <section class="content">			
           <div class="row">
-              <div class="col-12">
-                <div class="box">
-                  <div class="box-header with-border">
-                    <h4 class="box-title">Daily Update</h4>
+            <div class="col-xl-12">
+              <div class="card">
+                  <div class="card-header">
+                      <h4 class="card-title">Cold Wallet Deposit Address</h4>
                   </div>
-                  <div class="box-body">
-                      <div class="table-responsive">
-                        <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/currencies/" rel="noopener" target="_blank"><span class="blue-text">Forex market</span></a> by TradingView</div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-    {
-    "width": "100%",
-    "height": "1000",
-    "currencies": [
-      "EUR",
-      "USD",
-      "JPY",
-      "GBP",
-      "CHF",
-      "AUD",
-      "CAD",
-      "NZD",
-      "CNY",
-      "TRY",
-      "SEK",
-      "NOK",
-      "DKK",
-      "ZAR",
-      "HKD",
-      "SGD",
-      "THB",
-      "MXN",
-      "IDR",
-      "KRW",
-      "PLN"
-    ],
-    "isTransparent": false,
-    "colorTheme": "dark",
-    "locale": "en"
-  }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
+                  <div class="card-body" id="deposits">
+                      <div class="tab-content">
+                        
+                          <div class="tab-pane fade show active" id="tab1">
+                              <div class="qrcode">
+                                  <img src="{{data.image.url}}" alt="" width="150">
+                              </div>
+                              <form action="" method="post">
+                                {% csrf_token %}
+                                    {% include 'messages.html' %} 
+                                  <div class="input-group">
+                                      <input type="text"  class="form-control"
+                                          value="{{data.wallet}}" id="myInput" readonly>
+                                      <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" onclick="myFunction()" type="button" id="button-addon2">copy</button>
+                                      </div>
+                                  </div>
+                                  <div class="input-group">
+                                    <input type="text" class="form-control"
+                                        name="price" placeholder="Amount">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-primary text-white">USD</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="name" value="{{data.name}}">
+                                <input type="hidden" name="wal" value="{{data.wallet}}">
+                                <div class="form-group mt-5">
+                                  <input type="submit" class="btn btn-success" value="Stake">
+                                </div> 
+                              </form>
+
+                              <ul>
+                                  <li>
+                                      <i class="mdi mdi-checkbox-blank-circle"></i>
+                                      {{data.name}} network transfers will be credited to your account after
+                                      25 network confirmations.
+                                  </li>
+                                  <li>
+                                      <i class="mdi mdi-checkbox-blank-circle"></i>
+                                      {{data.name}} deposits to this address are unlimited. Note that you may not
+                                      be able to withdraw all of your funds at once if you deposit more
+                                      than your daily withdrawal limit.
+                                  </li>
+                              </ul>
+                          </div>
+                        
+                         
                       </div>
                   </div>
-                  <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
               </div>
+          </div>
               <div class="col-lg-6 col-12">
                 <div class="box">
                   <div class="box-header with-border">
@@ -120,75 +125,44 @@
                   </div>
                   <div class="box-body">
                       <div class="table-responsive">
-                          <table class="table table-bordered no-margin">
-                            <thead>
+                        <table class="table table-striped mb-0 table-responsive-sm">
+                          <thead>
                               <tr>
-                                 <th class="text-center">#</th>
-                                 <th>Name</th>
-                                 <th class="text-end">Price</th>
-                                 <th class="text-end">Mkt. Cap</th>
-                                 <th class="text-end">Change</th>
-                              </tr>
-                            </thead>
-                            <tbody>
+                                  <th>Transaction Address</th>
+                                  <th>Amount</th>
+                                  <th>Time</th>
+                                  <th>Coin</th>
+                                  <th>Date</th>
+                                 
+                                </tr>
+                          </thead>
+                          <tbody>
+                              {%  for i in tra %}
                               <tr>
-                                 <td class="text-center">1</td>
-                                 <td><a href="#" class="hover-warning">ADA</a></td>
-                                 <td class="text-end"><span>$</span> 0.45</td>
-                                 <td class="text-end"><span>$</span> 40,453,416</td>
-                                 <td class="text-end"><span class="label label-danger">3213.54 %</span></td>
+                                <td>
+                                  <a href="#" class="text-warning hover-warning">
+                                    {{i.wallet}}
+                                  </a>
+
+                                </td>
+                                <td>{{i.amount}}</td>
+                                <td>
+                                  <time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{i.time}}</time>
+                                </td>
+                                <td>{{i.name}}</td>
+                                <td>
+                                  <time class="timeago" datetime="2018-02-01T13:38:01Z" title="2018-02-01 13:38 GMT">{{i.date}}</time>
+                                </td>
+                                <!-- {% if i.loss %}
+                                <td><span class="label label-danger">Loss</span></td>
+                                {%  else %}
+                                <td><span class="label label-success">Confirmed</span></td>
+                                {% endif %} -->
                               </tr>
-                              <tr>
-                                 <td class="text-center">2</td>
-                                 <td><a href="#" class="hover-warning">AMP-alt</a></td>
-                                 <td class="text-end"><span>$</span> 0.123</td>
-                                 <td class="text-end"><span>$</span> 465,244</td>
-                                 <td class="text-end"><span class="label label-danger">123.00 %</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="text-center">3</td>
-                                 <td><a href="#" class="hover-warning">ARK</a></td>
-                                 <td class="text-end"><span>$</span> 0.13</td>
-                                 <td class="text-end"><span>$</span> 45,465</td>
-                                 <td class="text-end"><span class="label label-danger">13.78 %</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="text-center">4</td>
-                                 <td><a href="#" class="hover-warning">BSD-alt</a></td>
-                                 <td class="text-end"><span>$</span> 0.564</td>
-                                 <td class="text-end"><span>$</span> 31,117,925</td>
-                                 <td class="text-end"><span class="label label-danger">132.04 %</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="text-center">5</td>
-                                 <td><a href="#" class="hover-warning">BTC</a></td>
-                                 <td class="text-end"><span>$</span> 0.45</td>
-                                 <td class="text-end"><span>$</span> 45,213,631</td>
-                                 <td class="text-end"><span class="label label-danger">132.97 %</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="text-center">6</td>
-                                 <td><a href="#" class="hover-warning">DAO</a></td>
-                                 <td class="text-end"><span>$</span> 0.78</td>
-                                 <td class="text-end"><span>$</span> 12,592,274</td>
-                                 <td class="text-end"><span class="label label-danger">456.72 %</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="text-center">7</td>
-                                 <td><a href="#" class="hover-warning">DMD</a></td>
-                                 <td class="text-end"><span>$</span> 0.45</td>
-                                 <td class="text-end"><span>$</span> 54,124,540</td>
-                                 <td class="text-end"><span class="label label-danger">453.81 %</span></td>
-                              </tr>
-                              <tr>
-                                 <td class="text-center">8</td>
-                                 <td><a href="#" class="hover-warning">EMC</a></td>
-                                 <td class="text-end"><span>$</span> 1.345</td>
-                                 <td class="text-end"><span>$</span> 543,54,392</td>
-                                 <td class="text-end"><span class="label label-danger">13.80 %</span></td>
-                              </tr>
-                             </tbody>
-                          </table>
+                              {% endfor %}
+                              
+                          </tbody>
+                      </table>
                       </div>
                   </div>
                   <!-- /.box-body -->
@@ -212,7 +186,20 @@
 <!-- ./wrapper -->
 
 
-
+<script>
+  function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("myInput");
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+    /* Alert the copied text */
+    //alert("Copied the text: " + copyText.value);
+    swal("Copied", copyText.value, "success");
+    }
+</script>
 
 	<!-- Page Content overlay -->
 

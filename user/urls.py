@@ -12,7 +12,8 @@ urlpatterns = [
 
     path('Error/', views.myinvest, name='bad'),
    
-    path('gain/', views.gain, name='gain'),
+    path('gain/<id>/', views.gain, name='gain'),
+    path('upgrade/', views.plan, name='plan'),
     path('starts/', views.star, name='star'),
     path('superverse/', views.super, name='super'),
     path('trade/', views.trade, name='trade'),

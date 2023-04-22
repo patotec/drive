@@ -26,312 +26,371 @@ s{% extends 'acc/base.html' %}
 	{% include 'acc/side.html' %}
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <div class="container-full">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-          <div class="d-flex align-items-center">
-              <div class="me-auto">
-                  <h4 class="page-title">Crypto Summary</h4>
-                  <div class="d-inline-block align-items-center">
-                      <nav>
-                          <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item" aria-current="page">Analyses</li>
-                              <li class="breadcrumb-item active" aria-current="page">Crypto Summary</li>
-                          </ol>
-                      </nav>
-                  </div>
-              </div>
-              
-          </div>
-      </div>
-      <!-- Main content -->
-      <section class="content">			
-          <div class="row">			  
-              <div class="col-lg-3 col-md-6">
-                 
-                <div class="box">
-                    <div class="box-header with-border">
-                      <h4 class="box-title">Form Sections</h4>
-                    </div>
-                    <!-- /.box-header -->
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        {% include 'messages.html' %}
-                        <div class="box-body">
-                            <h4 class="mt-0 mb-20">1. Customer Info:</h4>
-                            <div class="form-group">
-                                <label class="form-label">Coin-Type:</label>
-                                <select name="coin" id="tradecrypto" class="form-control">
-                                    <option value=""></option>
-                                    <option value="Bitcoin (BTC)">Bitcoin (BTC)</option>
-                                    <option value="Ethereum (ETH)">Ethereum (ETH)</option>
-                                    <option value="Tether (USDT)">Tether (USDT)</option>
-                                    <option value="Tether (USDT)">BNB (BNB)</option>
-                                    <option value="USD Coin (USDC)">USD Coin (USDC)</option>
-                                    <option value="XRP (XRP)">XRP (XRP)</option>
-                                    <option value="Cardano (ADA)">Cardano (ADA)</option>
-                                    <option value="Terra (LUNA)">Terra (LUNA)</option>
-                                    <option value="Solana (SOL)">Solana (SOL)</option>
-                                    <option value="Avalanche (AVAX)">Avalanche (AVAX)</option>
-                                    <option value="Polkadot (DOT)">Polkadot (DOT)</option>
-                                    <option value="Dogecoin (Dogecoin)">Dogecoin (Dogecoin)</option>
-                                    <option value="Binance USD (BUSD)">Binance USD (BUSD)</option>
-                                    <option value="Binance USD (BUSD)">TerraUSD (UST)</option>
-                                    <option value="Shiba Inu (SHIB)">Shiba Inu (SHIB)</option>
-                                    <option value="Wrapped Bitcoin (WBTC)">Wrapped Bitcoin (WBTC)</option>
-                                    <option value="Polygon (MATIC)">Polygon (MATIC)</option>
-                                    <option value="Cronos (CRO)">Cronos (CRO)</option>
-                                    <option value="Dai (DAI)">Dai (DAI)</option>
-                                    <option value="NEAR Protocol (NEAR)">NEAR Protocol (NEAR)</option>
-                                    <option value="Litecoin (LTC)">Litecoin (LTC)</option>
-                                    <option value="Cosmos (ATOM)">Cosmos (ATOM)</option>
-                                    <option value="Chainlink (LINK)">Chainlink (LINK)</option>
-                                    <option value="Uniswap (UNI)">Uniswap (UNI)</option>
-                                    <option value="Bitcoin Cash (BCH)">Bitcoin Cash (BCH)</option>
-                                    <option value="TRON (TRX)">TRON (TRX)</option>
-                                    <option value="FTX Token (FTT)">FTX Token (FTT)</option>
-                                    <option value="Ethereum Classic">Ethereum Classic (ETC)</option>
-                                    <option value="Waves (WAVES)">Waves (WAVES)</option>
-                                    <option value="Algorand (ALGO)">Algorand (ALGO)</option>
-                                    <option value="Stellar (XLM)">Stellar (XLM)</option>
-                                    <option value="UNUS SED LEO (LEO)">UNUS SED LEO (LEO)</option>
-                                    <option value="Decentraland (MANA)">Decentraland (MANA)</option>
-                                    <option value="Hedera (HBAR)">Hedera (HBAR)</option>
-                                    <option value="VeChain (VET)">VeChain (VET)</option>
-                                    <option value="Internet Computer (ICP)">Internet Computer (ICP)</option>
-                                    <option value="Filecoin (FIL)">Filecoin (FIL)</option>
-                                    <option value="Elrond (EGLD)">Elrond (EGLD)</option>
-                                    <option value="The Sandbox (SAND)">The Sandbox (SAND)</option>
-                                    <option value="THORChain (RUNE)">THORChain (RUNE)</option>
-                                    <option value="Monero (XMR)">Monero (XMR)</option>
-                                    <option value="Theta Network (THETA)">Theta Network (THETA)</option>
-                                    <option value="Axie Infinity (AXS)">Axie Infinity (AXS)</option>
-                                    <option value="ApeCoin (APE)">ApeCoin (APE)</option>
-                                    <option value="Fantom (FTM)">Fantom (FTM)</option>
-                                    <option value="Klaytn (KLAY)">Klaytn (KLAY)</option>
-                                    <option value="Tezos (XTZ)">Tezos (XTZ)</option>
-                                    <option value="Aave (AAVE)">Aave (AAVE)</option>
-                                    <option value="EOS (EOS)">EOS (EOS)</option>
-                                    <option value="Helium (HNT)">Helium (HNT)</option>
-                                    <option value="Zcash (ZEC)">Zcash (ZEC)</option>
-                                    <option value="Flow (FLOW)">Flow (FLOW)</option>
-                                    <option value="IOTA (MIOTA)">IOTA (MIOTA)</option>
-                                    <option value="PancakeSwap (CAKE)">PancakeSwap (CAKE)</option>
-                                    <option value="The Graph (GRT)">The Graph (GRT)</option>
-                                    <option value="Maker (MKR)">Maker (MKR)</option>
-                                    <option value="Neo (NEO)">Neo (NEO)</option>
-                                    <option value="BitTorrent-New (BTT)">BitTorrent-New (BTT)</option>
-                                    <option value="Harmony (ONE)">Harmony (ONE)</option>
-                                    <option value="Stacks (STX)">Stacks (STX)</option>
-                                    <option value="Gala (GALA)">Gala (GALA)</option>
-                                    <option value="Bitcoin SV (BSV)">Bitcoin SV (BSV)</option>
-                                    <option value="Chiliz (CHZ)">Chiliz (CHZ)</option>
-                                    <option value="eCash (XEC)">eCash (XEC)</option>
-                                    <option value="Quant (QNT)">Quant (QNT)</option>
-                                    <option value="KuCoin Token (KCS)">KuCoin Token (KCS)</option>
-                                    <option value="Loopring (LRC)">Loopring (LRC)</option>
-                                    <option value="Convex Finance (CVX)">Convex Finance (CVX)</option>
-                                    <option value="Kusama (KSM)">Kusama (KSM)</option>
-                                    <option value="Enjin Coin (ENJ)">Enjin Coin (ENJ)</option>
-                                    <option value="Zilliqa (ZIL)">Zilliqa (ZIL)</option>
-                                    <option value="Celo (CELO)">Celo (CELO)</option>
-                                    <option value="Huobi Token (HT)">Huobi Token (HT)</option>
-                                    <option value="Dash (DASH)">Dash (DASH)</option>
-                                    <option value="TrueUSD (TUSD)">TrueUSD (TUSD)</option>
-                                    <option value="STEPN (GMT)">Avalanche (AVAX)</option>
-                                    <option value="Nexo(NEXO)">Nexo (NEXO)</option>
-                                    <option value="Curve DAO Token(CRV)">Curve DAO Token (CRV)</option>
-                                    <option value="OKBn(OKB)">OKB (OKB)</option>
-                                    <option value="Pax Dollar(USDP)">Pax Dollar (USDP)</option>
-                                    <option value="Basic Attention Token(BAT)">Basic Attention Token (BAT)</option>
-                                    <option value="Neutrino USD(USDN)">Neutrino USD (USDN)</option>
-                                    <option value="Mina(MINA)">Mina (MINA)</option>
-                                    <option value="Arweave(AR)">Arweave (AR)</option>
-                                    <option value="NEM(XEM)">NEM (XEM)</option>
-                                    <option value="XDC Network(XDC)">XDC Network (XDC)</option>
-                                    <option value="Decred(DCR)">Decred (DCR)</option>
-                                    <option value="Amp(AMP)">Amp (AMP)</option>
-                                    <option value="Kava(KAVA)">Kava (KAVA)</option>
-                                    <option value="Compound(COMP)">Compound (COMP)</option>
-                                    <option value="Holo(HOT)">Holo (HOT)</option>
-                                    <option value="Theta Fuel(TFUEL)">Theta Fuel (TFUEL)</option>
-                                    <option value="Kadena(KDA)">Kadena (KDA)</option>
-                                    <option value="yearn.finance(YFI)">yearn.finance (YFI)</option>
-                                    <option value="Moonbeam(GLMR)">Moonbeam (GLMR)</option>
-                                    <option value="0x(ZRX)">0x (ZRX)</option>
-                                    <option value="Secret(SCRT)">Secret (SCRT)</option>
-                                    <option value="ICON(ICX)">ICON (ICX)</option>
-                                    <option value="Audius(AUDIO)">Audius (AUDIO)</option>
-                                    <option value="PAX Gold(PAXG)">PAX Gold (PAXG)</option>
-                                    <option value="Oasis Network(ROSE)">Oasis Network (ROSE)</option>
-                                    <option value="Kyber Network Cr(KNC)">Kyber Network Cr  (KNC)</option>
-                                    <option value="Gnosis(GNO)">Gnosis  (GNO)</option>
-                                    <option value="Anchor Protocol(ANC)">Anchor Protocol  (ANC)</option>
-                                    <option value="Qtum(QTUM)">Qtum  (QTUM)</option>
-                                    <option value="IoTeX(IOTX)">IoTeX  (IOTX)</option>
-                                    <option value="OMG Network(OMG)">OMG Network  (OMG)</option>
-                                    <option value="Synthetix(SNX)">Synthetix (SNX)</option>
-                                    <option value="BORA(BORA)">BORA (BORA)</option>
-                                    <option value="Bancor(BNT)">Bancor (BNT)</option>
-                                    <option value="SKALE Network(SKL)">SKALE Network (SKL)</option>
-                                    <option value="Symbol(XYM)">Symbol (XYM)</option>
-                                    <option value="Ankr(ANKR)">Ankr (ANKR)</option>
-                                    <option value="Celsius(CEL)">Celsius (CEL)</option>
-                                    <option value="SXP(SXP)">SXP (SXP)</option>
-                                    <option value="Serum(SRM)">Serum (SRM)</option>
-                                    <option value="Dogelon Mars(ELON)"> Dogelon Mars(ELON)</option>
-                                    <option value="Bitcoin Gold(BTG)"> Bitcoin Gold(BTG)</option>
-                                    <option value="1inch Network(1INCH)"> 1inch Network(1INCH)</option>
-                                    <option value="GateToken  (GT)"> GateToken(GT)</option>
-                                    <option value="Livepeer  (LPT)"> Livepeer(LPT)</option>
-                                    <option value="Ravencoin  (RVN)"> Ravencoin(RVN)</option>
-                                    <option value="JUST  (JST)"> JUST(JST)</option>
-                                    <option value="Frax Share  (FXS)"> Frax Share(FXS)</option>
-                                    <option value="Ethereum Name S  (ENS)"> Ethereum Name S(ENS)</option>
-                                    <option value="Siacoin  (SC)">Siacoin(SC)</option>
-                                    <option value="WAX  (WAXP)">WAX(WAXP)</option>
-                                    <option value="IOST  (IOST)">IOST(IOST)</option>
-                                    <option value="Fei USD  (FEI)">Fei USD(FEI)</option>
-                                    <option value="Ontology  (ONT)">Ontology(ONT)</option>
-                                    <option value="APENFT  (NFT)">APENFT(NFT)</option>
-                                    <option value="Immutable X  (IMX)">Immutable X(IMX)</option>
-                                    <option value="Velas  (VLX)">Velas(VLX)</option>
-                                    <option value="Horizen  (ZEN)">Horizen(ZEN)</option>
-                                    <option value="Acala Token  (ACA)">Acala Token(ACA)</option>
-                                    <option value="Rally  (RLY)">Rally(RLY)</option>
-                                    <option value="SwissBorg  (CHSB)">SwissBorg(CHSB)</option>
-                                    <option value="WOO Network  (WOO)">WOO Network(WOO)</option>
-                                    <option value="renBTC  (RENBTC)">renBTC(RENBTC)</option>
-                                    <option value="Braintrust  (BTRST)">Braintrust(BTRST)</option>
-                                    <option value="Flux  (FLUX)">Flux(FLUX)</option>
-                                    <option value="UMA  (UMA)">UMA(UMA)</option>
-                                    <option value="Storj  (STORJ)">Storj(STORJ)</option>
-                                    <option value="Golem  (GLM)">Golem(GLM)</option>
-                                    <option value="Voyager Token  (VGX)">Voyager Token(VGX)</option>
-                                    <option value="Hive  (HIVE)">Hive(HIVE)</option>
-                                    <option value="Illuvium  (ILV)">Illuvium(ILV)</option>
-                                    <option value="Polymath  (POLY)">Polymath(POLY)</option>
-                                    <option value="SushiSwap  (SUSHI)">SushiSwap(SUSHI)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Amount:</label>
-                                <input type="number" name="amount" class="form-control" placeholder="Amount">
-                            </div>
-
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                          
-                            <button type="submit" class="btn btn-success pull-right">Submit</button>
-                        </div>
-                    </form>
-                  </div>
-                  <div class="box-footer p-0 no-border">
-                      <div class="chart"><canvas id="chartjs1" class="h-80"></canvas></div>
-                  </div>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                <!-- TradingView Widget BEGIN -->
+   <!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper">
+	  <div class="container-full">
+		<!-- Main content -->
+		<section class="content">			
+			<div class="row">
+				<div class="col-12">
+					<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script><div id="coinmarketcap-widget-coin-price-block" coins="3408,7186,8290,5426,10603" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>			
+				</div>
+				<div class="col-lg-8 col-12">
+				  <div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Stock Events</h4>
+					</div>
+					<div class="box-body">
+					  <div class="chart">
+										   <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Crypto markets</span></a> by TradingView</div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-    {
-    "width": 1000,
-    "height": 490,
-    "defaultColumn": "overview",
-    "screener_type": "crypto_mkt",
-    "displayCurrency": "USD",
-    "colorTheme": "dark",
-    "locale": "en"
+	<div id="tradingview_8526a"></div>
+	<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/ETHUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">ETHUSDT chart</span></a> by TradingView</div>
+	<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+	<script type="text/javascript">
+	new TradingView.widget(
+	{
+	"width": 650,
+	"height": 610,
+	"symbol": "BINANCE:ETHUSDT",
+	"interval": "D",
+	"timezone": "Etc/UTC",
+	"theme": "dark",
+	"style": "1",
+	"locale": "en",
+	"toolbar_bg": "#f1f3f6",
+	"enable_publishing": false,
+	"allow_symbol_change": true,
+	"isTransparent": true,
+	"container_id": "tradingview_8526a"
   }
-    </script>
+	);
+	</script>
   </div>
   <!-- TradingView Widget END -->
-
-               </div>
-            </div>
-            		
-            <div class="col-lg-6 col-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h4 class="box-title">Block Details</h4>
-                </div>
-                <div class="box-body">
-                  <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="15" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
-                </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <div class="col-lg-6 col-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h4 class="box-title">Block Details</h4>
-                </div>
-                <div class="box-body">
-                  <div class="coinmarketcap-currency-widget" data-currencyid="11" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
-                </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <div class="col-lg-6 col-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h4 class="box-title">Block Details</h4>
-                </div>
-                <div class="box-body">
-                  <div class="coinmarketcap-currency-widget" data-currencyid="12" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
-                </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-
-              <div class="col-lg-6 col-12">
-                <div class="box">
-                  <div class="box-header with-border">
-                    <h4 class="box-title">Transaction Details</h4>
-                  </div>
-                  <div class="box-body">
-                      <div class="table-responsive">
-                          <table class="table table-bordered no-margin">
-                              <tbody>
-                                <tr>
-                                  <td>Total Transaction Fees (BTC)</td>
-                                  <td>445.24635681 BTC</td>
-                                  <td><a href="#" class="hover-warning">View Flow</a></td>
-                                </tr>
-                                <tr>
-                                  <td>Number of Transactions</td>
-                                  <td>320,151</td>
-                                  <td><a href="#" class="hover-warning">View Flow</a></td>
-                                </tr>
-                                <tr>
-                                  <td>Total Output Volume (BTC)</td>
-                                  <td>4,543,040.43456788 BTC</td>
-                                  <td><a href="#" class="hover-warning">View Flow</a></td>
-                                </tr>
-                                <tr>
-                                  <td>Estimated Transaction Volume (USD)</td>
-                                  <td>$34,758,121,076.66</td>
-                                  <td><a href="#" class="hover-warning">View Flow</a></td>
-                                </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-                  <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-              </div> 
-            </div>	
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<div class="col-lg-4 col-12">
+					<div class="row">
+						
+						<div class="col-lg-6 col-12">
+						  <a class="box box-link-pop text-center" href="javascript:void(0)">
+							<div class="box-body">
+								<p class="fs-40 text-pink">
+									<i class="fa fa-money text-muted me-5 mb-20"></i><br>
+									<strong>{{user.accountbalance}} USD</strong>
+								</p>
+							</div>
+							<div class="box-body py-20 bg-light">
+								<h3 class="fw-600 mt-0">
+									Balance
+								</h3>
+							</div>
+						 </a>			
+						</div>
+						
+					</div>
+				</div>				
+			
+				<div class="col-xl-4 col-12">
+					<div class="box">
+						<div class="box-header with-border">
+							<h4 class="box-title">Time & Sales</h4>
+						</div>
+						<div class="box-body pt-0">
+							<div class="table-responsive">
+								<table class="table mb-0">
+								  <thead>
+									<tr>
+									  <th scope="col">Time (UTC)</th>
+									  <th scope="col">Price</th>
+									  <th scope="col">Size</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr>
+									  <td>10:26:41.119</td>
+									  <td class="text-success">0.0000001234</td>
+									  <td>7845</td>
+									</tr>
+									<tr>
+									  <td>10:01:12.121</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>8459</td>
+									</tr>
+									<tr>
+									  <td>09:24:42.212</td>
+									  <td class="text-success">0.0000001234</td>
+									  <td>12459</td>
+									</tr>
+									<tr>
+									  <td>09:12:52.120</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>75496</td>
+									</tr>
+									<tr>
+									  <td>08:26:41.119</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>1235</td>
+									</tr>
+									<tr>
+									  <td>08:12:12.123</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>12596</td>
+									</tr>
+									<tr>
+									  <td>08:10:12.159</td>
+									  <td class="text-success">0.0000001234</td>
+									  <td>54269</td>
+									</tr>
+									<tr>
+									  <td>08:03:12.119</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>9653</td>
+									</tr>
+									<tr>
+									  <td>07:26:41.119</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>1235</td>
+									</tr>
+									<tr>
+									  <td>06:26:41.119</td>
+									  <td class="text-success">0.0000001234</td>
+									  <td>45216</td>
+									</tr>
+									<tr>
+									  <td>05:26:41.119</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>17000</td>
+									</tr>
+									<tr>
+									  <td>04:26:41.119</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>1200</td>
+									</tr>
+									<tr>
+									  <td>10:26:41.119</td>
+									  <td class="text-success">0.0000001234</td>
+									  <td>7845</td>
+									</tr>
+									<tr>
+									  <td>10:01:12.121</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>8459</td>
+									</tr>
+									<tr>
+									  <td>10:26:41.119</td>
+									  <td class="text-danger">0.00000009853</td>
+									  <td>1236</td>
+									</tr>
+								  </tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-8 col-12">
+					<div class="box">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-bs-toggle="tab" href="#limit" role="tab">Limit</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="tab" href="#market" role="tab">Market</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-bs-toggle="tab" href="#stoplimit" role="tab">Stop-Limit</a>
+							</li>
+						</ul>
+						<div class="box-body tab-content">
+							<div class="tab-pane fade active show" id="limit">
+								<div class="row">
+									<div class="col-xl-6 col-12">
+										<div class="d-flex justify-content-between mt-15">
+										  <h4>Advance Trade</h4>
+										  <p class="mb-0">Balance: {{user.accountbalance}}</p>
+										</div>
+										<form class="dash-form" action="" method="post">
+                      {% csrf_token %}
+                      {% include 'messages.html' %}
+											<div class="input-group mb-10 mt-10">
+												<span class="input-group-addon">Coin</span>
+                        <select name="coin" id="tradecrypto" class="form-control text-dark">
+                          <option value=""></option>
+                          <option value="Bitcoin (BTC)">Bitcoin (BTC)</option>
+                          <option value="Ethereum (ETH)">Ethereum (ETH)</option>
+                          <option value="Tether (USDT)">Tether (USDT)</option>
+                          <option value="Tether (USDT)">BNB (BNB)</option>
+                          <option value="USD Coin (USDC)">USD Coin (USDC)</option>
+                          <option value="XRP (XRP)">XRP (XRP)</option>
+                          <option value="Cardano (ADA)">Cardano (ADA)</option>
+                          <option value="Terra (LUNA)">Terra (LUNA)</option>
+                          <option value="Solana (SOL)">Solana (SOL)</option>
+                          <option value="Avalanche (AVAX)">Avalanche (AVAX)</option>
+                          <option value="Polkadot (DOT)">Polkadot (DOT)</option>
+                          <option value="Dogecoin (Dogecoin)">Dogecoin (Dogecoin)</option>
+                          <option value="Binance USD (BUSD)">Binance USD (BUSD)</option>
+                          <option value="Binance USD (BUSD)">TerraUSD (UST)</option>
+                          <option value="Shiba Inu (SHIB)">Shiba Inu (SHIB)</option>
+                          <option value="Wrapped Bitcoin (WBTC)">Wrapped Bitcoin (WBTC)</option>
+                          <option value="Polygon (MATIC)">Polygon (MATIC)</option>
+                          <option value="Cronos (CRO)">Cronos (CRO)</option>
+                          <option value="Dai (DAI)">Dai (DAI)</option>
+                          <option value="NEAR Protocol (NEAR)">NEAR Protocol (NEAR)</option>
+                          <option value="Litecoin (LTC)">Litecoin (LTC)</option>
+                          <option value="Cosmos (ATOM)">Cosmos (ATOM)</option>
+                          <option value="Chainlink (LINK)">Chainlink (LINK)</option>
+                          <option value="Uniswap (UNI)">Uniswap (UNI)</option>
+                          <option value="Bitcoin Cash (BCH)">Bitcoin Cash (BCH)</option>
+                          <option value="TRON (TRX)">TRON (TRX)</option>
+                          <option value="FTX Token (FTT)">FTX Token (FTT)</option>
+                          <option value="Ethereum Classic">Ethereum Classic (ETC)</option>
+                          <option value="Waves (WAVES)">Waves (WAVES)</option>
+                          <option value="Algorand (ALGO)">Algorand (ALGO)</option>
+                          <option value="Stellar (XLM)">Stellar (XLM)</option>
+                          <option value="UNUS SED LEO (LEO)">UNUS SED LEO (LEO)</option>
+                          <option value="Decentraland (MANA)">Decentraland (MANA)</option>
+                          <option value="Hedera (HBAR)">Hedera (HBAR)</option>
+                          <option value="VeChain (VET)">VeChain (VET)</option>
+                          <option value="Internet Computer (ICP)">Internet Computer (ICP)</option>
+                          <option value="Filecoin (FIL)">Filecoin (FIL)</option>
+                          <option value="Elrond (EGLD)">Elrond (EGLD)</option>
+                          <option value="The Sandbox (SAND)">The Sandbox (SAND)</option>
+                          <option value="THORChain (RUNE)">THORChain (RUNE)</option>
+                          <option value="Monero (XMR)">Monero (XMR)</option>
+                          <option value="Theta Network (THETA)">Theta Network (THETA)</option>
+                          <option value="Axie Infinity (AXS)">Axie Infinity (AXS)</option>
+                          <option value="ApeCoin (APE)">ApeCoin (APE)</option>
+                          <option value="Fantom (FTM)">Fantom (FTM)</option>
+                          <option value="Klaytn (KLAY)">Klaytn (KLAY)</option>
+                          <option value="Tezos (XTZ)">Tezos (XTZ)</option>
+                          <option value="Aave (AAVE)">Aave (AAVE)</option>
+                          <option value="EOS (EOS)">EOS (EOS)</option>
+                          <option value="Helium (HNT)">Helium (HNT)</option>
+                          <option value="Zcash (ZEC)">Zcash (ZEC)</option>
+                          <option value="Flow (FLOW)">Flow (FLOW)</option>
+                          <option value="IOTA (MIOTA)">IOTA (MIOTA)</option>
+                          <option value="PancakeSwap (CAKE)">PancakeSwap (CAKE)</option>
+                          <option value="The Graph (GRT)">The Graph (GRT)</option>
+                          <option value="Maker (MKR)">Maker (MKR)</option>
+                          <option value="Neo (NEO)">Neo (NEO)</option>
+                          <option value="BitTorrent-New (BTT)">BitTorrent-New (BTT)</option>
+                          <option value="Harmony (ONE)">Harmony (ONE)</option>
+                          <option value="Stacks (STX)">Stacks (STX)</option>
+                          <option value="Gala (GALA)">Gala (GALA)</option>
+                          <option value="Bitcoin SV (BSV)">Bitcoin SV (BSV)</option>
+                          <option value="Chiliz (CHZ)">Chiliz (CHZ)</option>
+                          <option value="eCash (XEC)">eCash (XEC)</option>
+                          <option value="Quant (QNT)">Quant (QNT)</option>
+                          <option value="KuCoin Token (KCS)">KuCoin Token (KCS)</option>
+                          <option value="Loopring (LRC)">Loopring (LRC)</option>
+                          <option value="Convex Finance (CVX)">Convex Finance (CVX)</option>
+                          <option value="Kusama (KSM)">Kusama (KSM)</option>
+                          <option value="Enjin Coin (ENJ)">Enjin Coin (ENJ)</option>
+                          <option value="Zilliqa (ZIL)">Zilliqa (ZIL)</option>
+                          <option value="Celo (CELO)">Celo (CELO)</option>
+                          <option value="Huobi Token (HT)">Huobi Token (HT)</option>
+                          <option value="Dash (DASH)">Dash (DASH)</option>
+                          <option value="TrueUSD (TUSD)">TrueUSD (TUSD)</option>
+                          <option value="STEPN (GMT)">Avalanche (AVAX)</option>
+                          <option value="Nexo(NEXO)">Nexo (NEXO)</option>
+                          <option value="Curve DAO Token(CRV)">Curve DAO Token (CRV)</option>
+                          <option value="OKBn(OKB)">OKB (OKB)</option>
+                          <option value="Pax Dollar(USDP)">Pax Dollar (USDP)</option>
+                          <option value="Basic Attention Token(BAT)">Basic Attention Token (BAT)</option>
+                          <option value="Neutrino USD(USDN)">Neutrino USD (USDN)</option>
+                          <option value="Mina(MINA)">Mina (MINA)</option>
+                          <option value="Arweave(AR)">Arweave (AR)</option>
+                          <option value="NEM(XEM)">NEM (XEM)</option>
+                          <option value="XDC Network(XDC)">XDC Network (XDC)</option>
+                          <option value="Decred(DCR)">Decred (DCR)</option>
+                          <option value="Amp(AMP)">Amp (AMP)</option>
+                          <option value="Kava(KAVA)">Kava (KAVA)</option>
+                          <option value="Compound(COMP)">Compound (COMP)</option>
+                          <option value="Holo(HOT)">Holo (HOT)</option>
+                          <option value="Theta Fuel(TFUEL)">Theta Fuel (TFUEL)</option>
+                          <option value="Kadena(KDA)">Kadena (KDA)</option>
+                          <option value="yearn.finance(YFI)">yearn.finance (YFI)</option>
+                          <option value="Moonbeam(GLMR)">Moonbeam (GLMR)</option>
+                          <option value="0x(ZRX)">0x (ZRX)</option>
+                          <option value="Secret(SCRT)">Secret (SCRT)</option>
+                          <option value="ICON(ICX)">ICON (ICX)</option>
+                          <option value="Audius(AUDIO)">Audius (AUDIO)</option>
+                          <option value="PAX Gold(PAXG)">PAX Gold (PAXG)</option>
+                          <option value="Oasis Network(ROSE)">Oasis Network (ROSE)</option>
+                          <option value="Kyber Network Cr(KNC)">Kyber Network Cr  (KNC)</option>
+                          <option value="Gnosis(GNO)">Gnosis  (GNO)</option>
+                          <option value="Anchor Protocol(ANC)">Anchor Protocol  (ANC)</option>
+                          <option value="Qtum(QTUM)">Qtum  (QTUM)</option>
+                          <option value="IoTeX(IOTX)">IoTeX  (IOTX)</option>
+                          <option value="OMG Network(OMG)">OMG Network  (OMG)</option>
+                          <option value="Synthetix(SNX)">Synthetix (SNX)</option>
+                          <option value="BORA(BORA)">BORA (BORA)</option>
+                          <option value="Bancor(BNT)">Bancor (BNT)</option>
+                          <option value="SKALE Network(SKL)">SKALE Network (SKL)</option>
+                          <option value="Symbol(XYM)">Symbol (XYM)</option>
+                          <option value="Ankr(ANKR)">Ankr (ANKR)</option>
+                          <option value="Celsius(CEL)">Celsius (CEL)</option>
+                          <option value="SXP(SXP)">SXP (SXP)</option>
+                          <option value="Serum(SRM)">Serum (SRM)</option>
+                          <option value="Dogelon Mars(ELON)"> Dogelon Mars(ELON)</option>
+                          <option value="Bitcoin Gold(BTG)"> Bitcoin Gold(BTG)</option>
+                          <option value="1inch Network(1INCH)"> 1inch Network(1INCH)</option>
+                          <option value="GateToken  (GT)"> GateToken(GT)</option>
+                          <option value="Livepeer  (LPT)"> Livepeer(LPT)</option>
+                          <option value="Ravencoin  (RVN)"> Ravencoin(RVN)</option>
+                          <option value="JUST  (JST)"> JUST(JST)</option>
+                          <option value="Frax Share  (FXS)"> Frax Share(FXS)</option>
+                          <option value="Ethereum Name S  (ENS)"> Ethereum Name S(ENS)</option>
+                          <option value="Siacoin  (SC)">Siacoin(SC)</option>
+                          <option value="WAX  (WAXP)">WAX(WAXP)</option>
+                          <option value="IOST  (IOST)">IOST(IOST)</option>
+                          <option value="Fei USD  (FEI)">Fei USD(FEI)</option>
+                          <option value="Ontology  (ONT)">Ontology(ONT)</option>
+                          <option value="APENFT  (NFT)">APENFT(NFT)</option>
+                          <option value="Immutable X  (IMX)">Immutable X(IMX)</option>
+                          <option value="Velas  (VLX)">Velas(VLX)</option>
+                          <option value="Horizen  (ZEN)">Horizen(ZEN)</option>
+                          <option value="Acala Token  (ACA)">Acala Token(ACA)</option>
+                          <option value="Rally  (RLY)">Rally(RLY)</option>
+                          <option value="SwissBorg  (CHSB)">SwissBorg(CHSB)</option>
+                          <option value="WOO Network  (WOO)">WOO Network(WOO)</option>
+                          <option value="renBTC  (RENBTC)">renBTC(RENBTC)</option>
+                          <option value="Braintrust  (BTRST)">Braintrust(BTRST)</option>
+                          <option value="Flux  (FLUX)">Flux(FLUX)</option>
+                          <option value="UMA  (UMA)">UMA(UMA)</option>
+                          <option value="Storj  (STORJ)">Storj(STORJ)</option>
+                          <option value="Golem  (GLM)">Golem(GLM)</option>
+                          <option value="Voyager Token  (VGX)">Voyager Token(VGX)</option>
+                          <option value="Hive  (HIVE)">Hive(HIVE)</option>
+                          <option value="Illuvium  (ILV)">Illuvium(ILV)</option>
+                          <option value="Polymath  (POLY)">Polymath(POLY)</option>
+                          <option value="SushiSwap  (SUSHI)">SushiSwap(SUSHI)</option>
+                      </select>
+											</div>
+											<div class="input-group mb-10">
+												<span class="input-group-addon">Amount</span>
+												<input type="number" class="form-control" placeholder="0" name="amount">
+											</div>
+										
+											<button type="submit" class="btn w-p100 btn-success mt-20">Trade</button>
+										</form>							
+									</div>
+								
+								</div>
+							</div>
+						
+						</div>
+					</div>	
+				
+				</div>
+			</div>
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
       </section>
       <!-- /.content -->
     </div>

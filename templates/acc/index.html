@@ -32,172 +32,109 @@
 									</div>
 									<div class="mt-20 mb-5">
 									  <h3 class="my-0 fw-600"><span class="text-warning">{{user.accountbalance}}</span> USD</h3>
-									  <p>{{user.pair}}</p>
+									  <p>{{user.pair}}</p> <br>
+									  {% if user.pro %}
+                                  <button class="btn btn-success">{{user.rank}}</button>
+                                  {% else %}
+                                  <button class="btn btn-warning">{{user.rank}}</button>
+                                  {% endif %}
 
 									</div>
 								</div>
 								<div class="box-footer">
-									<ul class="list-inline">
-										<li class="list-inline-item"><a href="{% url 'userurl:depo' %}" class="text-white hover-warning"><i class="fa fa-send-o me-5"></i>Fund</a></li>
 
-										<li class="list-inline-item"><a href="{% url 'userurl:with' %}" class="text-white hover-warning"><i class="fa fa-download me-5"></i>Withdraw</a></li>
-									</ul>
 								</div>
 							</div>
 						</div>
 						<div class="col">
-							<div class="box bg-primary">
-								<div class="box-body">
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="d-flex align-items-center">
-										
-											<div>
-												<h4 class="mb-0">Referal Bonus</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="mt-20 mb-5">
-									  <h3 class="my-0 fw-600"><span class="text-warning">{{user.referal}}</span> USD</h3>
-									  <p>{{user.pair}}</p>
-
-									</div>
-								</div>
-								<div class="box-footer">
-									<ul class="list-inline">
-										<li class="list-inline-item"><a href="{% url 'userurl:depo' %}" class="text-white hover-warning"><i class="fa fa-send-o me-5"></i>Fund</a></li>
-
-										<li class="list-inline-item"><a href="{% url 'userurl:with' %}" class="text-white hover-warning"><i class="fa fa-download me-5"></i>Withdraw</a></li>
-									</ul>
+							<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script><div id="coinmarketcap-widget-coin-price-block" coins="3408,7186,8290,5426,10603" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
+						</div>
+						
+						
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<div class="card profile_card">
+								<div class="card-body">
+									<!-- TradingView Widget BEGIN -->
+	<div class="tradingview-widget-container">
+		<div class="tradingview-widget-container__widget"></div>
+		<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/SUPERUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">SUPERUSDT rates</span></a> by TradingView</div>
+		<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+		{
+		"symbol": "BINANCE:SUPERUSDT",
+		"width": "100%",
+		"height": "100%",
+		"locale": "en",
+		"dateRange": "12M",
+		"colorTheme": "light",
+		"trendLineColor": "rgba(41, 98, 255, 1)",
+		"underLineColor": "rgba(41, 98, 255, 0.3)",
+		"underLineBottomColor": "rgba(41, 98, 255, 0)",
+		"isTransparent": true,
+		"autosize": true,
+		"largeChartUrl": ""
+	  }
+		</script>
+	  </div>
+	  <!-- TradingView Widget END -->
 								</div>
 							</div>
 						</div>
-						<div class="col">
-							<div class="box bg-primary">
-								<div class="box-body">
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="d-flex align-items-center">
-										
-											<div>
-												<h4 class="mb-0">Total Deposit</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="mt-20 mb-5">
-									  <h3 class="my-0 fw-600"><span class="text-warning">{{user.total_deposit}}</span> USD</h3>
-									  <p>{{user.pair}}</p>
-
-									</div>
-								</div>
-								<div class="box-footer">
-									<ul class="list-inline">
-										<li class="list-inline-item"><a href="{% url 'userurl:depo' %}" class="text-white hover-warning"><i class="fa fa-send-o me-5"></i>Fund</a></li>
-
-										<li class="list-inline-item"><a href="{% url 'userurl:with' %}" class="text-white hover-warning"><i class="fa fa-download me-5"></i>Withdraw</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="box bg-primary">
-								<div class="box-body">
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="d-flex align-items-center">
-									
-											<div>
-												<h4 class="mb-0">Total Withdrawal</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="mt-20 mb-5">
-									  <h3 class="my-0 fw-600"><span class="text-warning">{{user.total_withdrawal}}</span> USD</h3>
-									  <p>{{user.pair}}</p>
-
-									</div>
-								</div>
-								<div class="box-footer">
-									<ul class="list-inline">
-										<li class="list-inline-item"><a href="{% url 'userurl:depo' %}" class="text-white hover-warning"><i class="fa fa-send-o me-5"></i>Fund</a></li>
-
-										<li class="list-inline-item"><a href="{% url 'userurl:with' %}" class="text-white hover-warning"><i class="fa fa-download me-5"></i>Withdraw</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="box bg-primary">
-								<div class="box-body">
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="d-flex align-items-center">
-										
-											<div>
-												<h4 class="mb-0">Profit</h4>
-											</div>
-										</div>
-
-									</div>
-									<div class="mt-20 mb-5">
-									  <h3 class="my-0 fw-600"><span class="text-warning">{{user.profit}}</span> USD</h3>
-									  <p>{{user.pair}}</p>
-
-									</div>
-								</div>
-								<div class="box-footer">
-									<ul class="list-inline">
-										<li class="list-inline-item"><a href="{% url 'userurl:depo' %}" class="text-white hover-warning"><i class="fa fa-send-o me-5"></i>Fund</a></li>
-
-										<li class="list-inline-item"><a href="{% url 'userurl:with' %}" class="text-white hover-warning"><i class="fa fa-download me-5"></i>Withdraw</a></li>
-									</ul>
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<div class="card profile_card">
+								<div class="card-body">
+								 <!-- TradingView Widget BEGIN -->
+	<div class="tradingview-widget-container">
+		<div class="tradingview-widget-container__widget"></div>
+		<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/MATICUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">MATICUSDT rates</span></a> by TradingView</div>
+		<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+		{
+		"symbol": "BINANCE:MATICUSDT",
+		"width": "100%",
+		"height": "100%",
+		"locale": "en",
+		"dateRange": "12M",
+		"colorTheme": "light",
+		"trendLineColor": "rgba(41, 98, 255, 1)",
+		"underLineColor": "rgba(41, 98, 255, 0.3)",
+		"underLineBottomColor": "rgba(41, 98, 255, 0)",
+		"isTransparent": true,
+		"autosize": true,
+		"largeChartUrl": ""
+	  }
+		</script>
+	  </div>
+	  <!-- TradingView Widget END -->
 								</div>
 							</div>
 						</div>
 						
-						<div class="col-lg-4 col-12">
-							
-								
-						</div>
-						<div class="col-lg-4 col-12">
-							
-								
-						</div>
-					</div>
-					<div class="box">
-						<div class="box-body bb-1 d-lg-block d-none bbsr-0 bber-0">
-							<div class="d-flex justify-content-between align-items-center">
-
+						<div class="col-xl-6 col-lg-6 col-md-6">
+							<div class="row">
+							   
+							  <!-- TradingView Widget BEGIN -->
+	<div class="tradingview-widget-container">
+		<div class="tradingview-widget-container__widget"></div>
+		<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Crypto markets</span></a> by TradingView</div>
+		<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+		{
+		"width": 1000,
+		"height": 490,
+		"defaultColumn": "overview",
+		"screener_type": "crypto_mkt",
+		"displayCurrency": "USD",
+		"colorTheme": "dark",
+		"locale": "en"
+	  }
+		</script>
+	  </div>
+	  <!-- TradingView Widget END -->
+							   
 							</div>
 						</div>
-						<div class="box-body">
-						   <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-	<div id="tradingview_8526a"></div>
-	<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/ETHUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">ETHUSDT chart</span></a> by TradingView</div>
-	<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-	<script type="text/javascript">
-	new TradingView.widget(
-	{
-	"width": 650,
-	"height": 610,
-	"symbol": "BINANCE:ETHUSDT",
-	"interval": "D",
-	"timezone": "Etc/UTC",
-	"theme": "dark",
-	"style": "1",
-	"locale": "en",
-	"toolbar_bg": "#f1f3f6",
-	"enable_publishing": false,
-	"allow_symbol_change": true,
-	"isTransparent": true,
-	"container_id": "tradingview_8526a"
-  }
-	);
-	</script>
-  </div>
-  <!-- TradingView Widget END -->
-						</div>
+						
+						
 					</div>
+				
 					<div class="box">
 						<div class="box-header with-border">
 						  <h4 class="box-title">Transactions History</h4>
@@ -333,254 +270,31 @@
 					</div> -->
 					
 				</div>
+				
 				<div class="col-12">
 					<div class="box">
 					  <div class="box-body">
-						  <ul id="webticker-1">
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">BCH/BTC</h5>
-										<p class="text-danger">-2.24%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$0.04886</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">REP/USD</h5>
-										<p class="text-danger">-2.57%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$20.12</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">EOS/USD</h5>
-										<p class="text-success">+1.54%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$4.755</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">ZRX/USD</h5>
-										<p class="text-danger">-1.33%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$0.26877</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">ETH/USD</h5>
-										<p class="text-success">+0.57%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$159.73</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">LTC/USD</h5>
-										<p class="text-success">+1.30%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$73.42</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">ETC/USD</h5>
-										<p class="text-danger">-0.19%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$5.719</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">BCH/USD</h5>
-										<p class="text-success">+0.42%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$267.72</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">XRP/USD</h5>
-										<p class="text-danger">-0.50%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$0.2974</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">BTC/USD</h5>
-										<p class="text-success">+3.15%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$5,497.49</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">REP/USD</h5>
-										<p class="text-danger">-2.52%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$20.13</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">EOS/USD</h5>
-										<p class="text-success">+1.58%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$4.757</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">ZRX/USD</h5>
-										<p class="text-danger">-2.07%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$0.268135</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">ETH/USD</h5>
-										<p class="text-success">+0.47%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$159.55</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">LTC/USD</h5>
-										<p class="text-success">+1.28%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$73.40</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">ETC/USD</h5>
-										<p class="text-danger">-0.44%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$5.715</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">BCH/USD</h5>
-										<p class="text-success">+0.43%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$268.00</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">XRP/USD</h5>
-										<p class="text-danger">-0.54%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$0.2970</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">BTC/USD</h5>
-										<p class="text-success">+3.00%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$5,490.01</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
-							<li class="be-1">
-								<div class="mx-20">
-									<div class="d-flex justify-content-between">
-										<h5 class="me-40">XLM/USD</h5>
-										<p class="text-danger">-0.97%</p>
-									</div>
-									<div class="d-flex justify-content-between">
-										<h4 class="my-0 me-40">$0.099065</h4>
-										<span class="sparklines">8,4,0,0,1,4,4,10,10,0,0,4,6,5,9,10</span>
-									</div>
-								</div>
-							</li>
+						
 
-						  </ul>
+						<script src="https://price-static.crypto.com/latest/public/static/widget/index.js"></script>
+						<div
+						  id="crypto-widget-CoinBlocks"
+						  
+						  data-theme="dark"
+						  data-design="classic"
+						  data-coin-ids="1120,3452,4911,275,2179,2805,1849"></div>
 					  </div>
 				  </div>
+				</div>
+				<div class="col-12">
+					<div class="box">
+						<div class="box-header with-border">
+							<h4 class="box-title">Transaction Line Chart</h4>
+						</div>
+						<div class="box-body">
+							<div id="multiple-xy"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -605,5 +319,16 @@
 
 
 </body>
-
+<script src="https://specie-admin-template.multipurposethemes.com/js/vendors.min.js"></script>
+	<script src="https://specie-admin-template.multipurposethemes.com/js/pages/chat-popup.js"></script>
+    <script src="https://specie-admin-template.multipurposethemes.com/assets/icons/feather-icons/feather.min.js"></script>	<script src="https://specie-admin-template.multipurposethemes.com/assets/vendor_components/c3/d3.min.js"></script>
+    <script src="https://specie-admin-template.multipurposethemes.com/assets/vendor_components/c3/c3.min.js"></script>
+	
+	<!-- Specie Admin Admin App -->
+	<script src="https://specie-admin-template.multipurposethemes.com/js/demo.js"></script>
+	<script src="https://specie-admin-template.multipurposethemes.com/js/template.js"></script>
+	
+    <script src="https://specie-admin-template.multipurposethemes.com/js/pages/c3-line.js"></script>
+    <script src="https://specie-admin-template.multipurposethemes.com/js/pages/c3-stap-line.js"></script>
+    <script src="https://specie-admin-template.multipurposethemes.com/js/pages/c3-multi-xy-line.js"></script>
 {% endblock content %}
