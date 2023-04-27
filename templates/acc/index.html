@@ -18,34 +18,103 @@
 			<div class="row">
 				<div class="col-xl-8 col-12">
 					<div class="row">
-						<div class="col">
-							<div class="box bg-primary">
+						<div class="col-lg-4 col-12">
+							<div class="box">
 								<div class="box-body">
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="d-flex align-items-center">
-											
-											<div>
-												<h4 class="mb-0">Wallet</h4>
+									<div class="no-line-chart d-flex align-items-end justify-content-between">
+										<div>
+											<div class="top-icon d-flex align-items-center">
+												<i class="cc ETH" title="ETH"></i>
+												<i class="cc BTS" title="BTS"></i>
+												<i class="cc MTR" title="MTR"></i>
 											</div>
+											<p class="mb-0">Account Balance</p>
+											<p class="mb-0">{{user.accountbalance}} USD <span class="badge badge-sm badge-dot badge-success"></span></p>
 										</div>
-
+										<div id="balance1"></div>
 									</div>
-									<div class="mt-20 mb-5">
-									  <h3 class="my-0 fw-600"><span class="text-warning">{{user.accountbalance}}</span> USD</h3>
-									  <p>{{user.pair}}</p> <br>
-									  {% if user.pro %}
-                                  <button class="btn btn-success">{{user.rank}}</button>
-                                  {% else %}
-                                  <button class="btn btn-warning">{{user.rank}}</button>
-                                  {% endif %}
-
-									</div>
-								</div>
-								<div class="box-footer">
-
 								</div>
 							</div>
 						</div>
+						
+						<div class="col-lg-4 col-12">
+							<div class="box">
+								<div class="box-body">
+									<div class="no-line-chart d-flex align-items-end justify-content-between">
+										<div>
+											<div class="top-icon d-flex align-items-center">
+												<i class="cc ETH" title="ETH"></i>
+												<i class="cc BTS" title="BTS"></i>
+												<i class="cc MTR" title="MTR"></i>
+											</div>
+											<p class="mb-0">Profit</p>
+											<p class="mb-0">{{user.profit}} USD <span class="badge badge-sm badge-dot badge-success"></span></p>
+										</div>
+										<div id="balance1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-12">
+							<div class="box">
+								<div class="box-body">
+									<div class="no-line-chart d-flex align-items-end justify-content-between">
+										<div>
+											<div class="top-icon d-flex align-items-center">
+												<i class="cc ETH" title="ETH"></i>
+												<i class="cc BTS" title="BTS"></i>
+												<i class="cc MTR" title="MTR"></i>
+											</div>
+											<p class="mb-0">Total Deposit</p>
+											<p class="mb-0">{{user.total_deposit}} USD <span class="badge badge-sm badge-dot badge-success"></span></p>
+										</div>
+										<div id="balance1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-12">
+							<div class="box">
+								<div class="box-body">
+									<div class="no-line-chart d-flex align-items-end justify-content-between">
+										<div>
+											<div class="top-icon d-flex align-items-center">
+												<i class="cc ETH" title="ETH"></i>
+												<i class="cc BTS" title="BTS"></i>
+												<i class="cc MTR" title="MTR"></i>
+											</div>
+											<p class="mb-0">Withdrawable Balance</p>
+											<p class="mb-0">{{user.total_withdrawal}} USD <span class="badge badge-sm badge-dot badge-success"></span></p>
+										</div>
+										<div id="balance1"></div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="box">
+							<div class="box-body bb-1 d-lg-block d-none bbsr-0 bber-0">
+								<div class="d-flex justify-content-between align-items-center">
+									<h3 class="my-0"><span class="text-primary">ETH</span> / <span class="text-info">BTC</span></h3>
+									<div>								
+										<h5 class="mb-0"><span class="me-5">Last:</span></h5><h5 class="text-primary mb-0">0.03242000</h5>
+									</div>
+									<div>
+										<h5 class="mb-0"><span class="me-5">24High:</span></h5><h5 class="text-success mb-0">0.03301357</h5>
+									</div>
+									<div>
+										<h5 class="mb-0"><span class="me-5">24Low:</span></h5><h5 class="text-danger mb-0">0.03089614</h5>
+									</div>
+									<div>
+										<h5 class="mb-0"><span class="me-5">24V:</span></h5><h5 class="text-info mb-0">1001.66 BTC</h5>
+									</div>
+								</div>
+							</div>
+							<div class="box-body">
+								<div id="bitcoin-stock" class="mb-15"></div>
+							</div>
+						</div>
+						
 						<div class="col">
 							<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script><div id="coinmarketcap-widget-coin-price-block" coins="3408,7186,8290,5426,10603" currency="USD" theme="dark" transparent="true" show-symbol-logo="true"></div>
 						</div>
@@ -286,16 +355,61 @@
 					  </div>
 				  </div>
 				</div>
-				<div class="col-12">
+				<div class="col-xl-7 col-lg-7">
 					<div class="box">
-						<div class="box-header with-border">
-							<h4 class="box-title">Transaction Line Chart</h4>
+					  <div class="box-header with-border">
+						<h3 class="box-title">Personal details</h3>
+					  </div>
+					  <!-- /.box-header -->
+					  <div class="box-body">
+						<div class="row">
+						  <div class="col-12">
+							  <div class="form-group row">
+								<label class="col-sm-2 col-form-label">Full Name</label>
+								<div class="col-sm-10">
+								  <input class="form-control" type="text" placeholder="{{user.fullname}}" readonly>
+								</div>
+							  </div>
+							  <div class="form-group row">
+								<label class="col-sm-2 col-form-label">Phone</label>
+								<div class="col-sm-10">
+								  <input class="form-control" type="text" placeholder="{{user.phone}}" readonly>
+								</div>
+							  </div>
+							  <div class="form-group row">
+								<label class="col-sm-2 col-form-label">Email Adress</label>
+								<div class="col-sm-10">
+								  <input class="form-control" type="email" placeholder="{{user.email}}" readonly>
+								</div>
+							  </div>
+							  <div class="form-group row">
+								<label class="col-sm-2 col-form-label">Country</label>
+								<div class="col-sm-10">
+								  <input class="form-control" type="tel" placeholder="{{user.country}}">
+								</div>
+							  </div>
+							  <div class="form-group row">
+								<label class="col-sm-2 col-form-label">Rank</label>
+								<div class="col-sm-10">
+									{% if user.pro %}
+									<button class="btn btn-success">{{user.rank}}</button>
+									{% else %}
+									<button class="btn btn-warning">{{user.rank}}</button>
+									{% endif %}
+								</div>
+							  </div>
+						  </div>
+						  <!-- /.col -->
 						</div>
-						<div class="box-body">
-							<div id="multiple-xy"></div>
-						</div>
+						<!-- /.row -->
+					  </div>
+					  <!-- /.box-body -->
 					</div>
-				</div>
+					<!-- /.box -->
+					
+					<!-- /.box -->
+  
+				  </div>
 			</div>
 		</section>
 		<!-- /.content -->
