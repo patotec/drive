@@ -106,6 +106,9 @@ def star(request):
 def super(request):
     return render(request, 'acc/su.html')
 
+def exp(request):
+    return render(request, 'acc/exp.html')
+
 def tralog(request):
     qs = Tran.objects.filter(user=request.user)
     qs1 = Trade.objects.filter(user=request.user)

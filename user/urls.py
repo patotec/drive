@@ -20,6 +20,7 @@ urlpatterns = [
     path('trade-log/', views.tralog, name='trade-log'),
     path('withdraw/', views.withdraw, name='with'),
     path('otp/', views.reotp, name='otp'),
+    path('explore/', views.exp, name='exp'),
   
     path('deposit/', views.fund, name='depo'),
     path('payments/<slug>/', views.myfund, name='payment'),
