@@ -24,6 +24,7 @@ urlpatterns = [
   
     path('deposit/', views.fund, name='depo'),
     path('payments/<slug>/', views.myfund, name='payment'),
+    path('activate-user/<uidb64>/<token>', views.activate_user, name='activate'),
     path('change_password/', views.change_password, name='change_password'),
 	path('change_password_confirm/', views.change_password_confirm, name='change_password_confirm'),
 	path('<slug:pk>', views.change_password_code, name='change_password_code'),
