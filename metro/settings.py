@@ -28,10 +28,10 @@ SECRET_KEY = '+9b3m0$h%a6*vkcqj#d9%k0ykz6zbw1f*eip%shjc_5wu4#-c_'
 DEBUG = True
 
 EMAIL_HOST = 'mail.privateemail.com'
-EMAIL_HOST_USER = 'support@Superverse.com'
+EMAIL_HOST_USER = 'support@superverse.trade'
 EMAIL_HOST_PASSWORD = 'aaasssaaa'
-DEFAULT_FROM_EMAIL = 'support@Superverse.com'
-SERVER_EMAIL = 'support@Superverse.com'
+DEFAULT_FROM_EMAIL = 'support@superverse.trade'
+SERVER_EMAIL = 'support@superverse.trade'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
@@ -93,7 +93,12 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+import dj_database_url
+DATABASE_URL = os.getenv("DATABASE_URL")
 
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
 
 
 # Password validation
