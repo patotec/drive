@@ -17,7 +17,7 @@
 							<div class="slider-content">
 								<div class="slider-title">
 									<h1>The Best Trading Cryptocurrency Resource</h1>
-									<p>Cryptography, encryption process of transforming information referred to as plaintext) using done.</p>
+									<p>providing easy Access to the best arbitraging tools and services avaliable in the crypto space.</p>
 								</div>
 							</div>
 							<div class="slider-button">
@@ -155,13 +155,13 @@
 							<div class="about-tmb">
 								<img src="/static/assets/images/about.png" alt="">
 								<div class="about-titles">
-									<h4>Srart Trading</h4>
+									<h4>Start Trading</h4>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="about-button">
-						<a href="#">learn more</a>
+						<a href="{% url 'userurl:signup' %}">learn more</a>
 					</div>
 				</div>
 			</div>
@@ -331,7 +331,7 @@
 						<div class="testimonial-text">
 							<ul>
 								<li>Profit(%): {{i.profit}}</li>
-								<li>Duration: {{i.duration}}</li>
+								<li>Min-Duration: {{i.duration}} days</li>
 								<li>Minimum Deposit(USD): {{i.mindeposit}}</li>
 								<li>Max Deposit(USD): {{i.maxdeposit}}</li>
 							</ul>
@@ -362,7 +362,7 @@
 						<p>The company prides itself on providing industry-leading security in addition to having been audited to show 100% proof of reserves. Superverse.trade operates in most countries across the world, and is always committed to complying with the applicable laws where it operates.</p>
 					</div>
 					<div class="call-do-button">
-						<a href="#">Get Started Now</a>
+						<a href="{% url 'userurl:signup' %}">Get Started Now</a>
 					</div>
 				</div>
 			</div>

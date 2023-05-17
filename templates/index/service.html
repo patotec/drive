@@ -86,7 +86,7 @@
                             <h3>Universal Access</h3>
                           
                             <div class="feature-button">
-                                <a href="#">Read More</a>
+                                <a href="{% url 'userurl:signup' %}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
 						<div class="testimonial-text">
 							<ul>
 								<li>Profit(%): {{i.profit}}</li>
-								<li>Duration: {{i.duration}}</li>
+								<li>Min-Duration: {{i.duration}} days</li>
 								<li>Minimum Deposit(USD): {{i.mindeposit}}</li>
 								<li>Max Deposit(USD): {{i.maxdeposit}}</li>
 							</ul>
