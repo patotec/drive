@@ -34,7 +34,10 @@ def mycontact(request):
 def myabout(request):
 	return render(request, 'index/about.html')
 def myse(request):
-	return render(request, 'index/service.html')
+	qs = Plan.objects.all()
+	qs2 = Review.objects.all()
+	context = {'inv':qs,'rev':qs2}
+	return render(request, 'index/service.html',context)
 def myfunding(request):
 	return render(request, 'index/funding-methods.html')
 def myplat(request):

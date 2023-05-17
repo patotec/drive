@@ -2,89 +2,130 @@
 {% load static %}
 {% block content %}
 
-<!-- End Sidebar -->
-        <div class="main-panel bg-dark">
-			<div class="content bg-dark">
-				<div class="page-inner">
-					<div class="mt-2 mb-4">
-						<h1 class="title1 text-light">Make Payment</h1>
-					</div>
-					<div>
-    </div>					<div>
-    </div>					<div>
-    </div>					<div class="row">
-						<div class="col-md-8 offset-md-2">
-							<div class="card bg-dark shadow-lg p-2 p-md-4">
-								<div class="card-body">
-																													<div>
-											<h4 class="text-light">You are to make payment using your selected payment method. Screenshot and upload the proof of payment</h4>
-											<h4>
-													<img src="{{data.image.url}}" alt="" class="w-25" >
-													<strong class="text-light">{{data.name}}</strong>
-											</h4>
-										</div>
-									
-										<div class="mt-5">
-																																		<h3 class="text-light">
-													<strong>{{data.name}} Address:</strong>
-												</h3>
-												<div class="form-group">
-    												<div class="mb-3 input-group">
-    													<input type="text" class="form-control myInput readonly text-dark bg-dark" value="{{data.wallet}}" id="myInput" readonly>
-    													<div class="input-group-append">
-    														<button class="btn btn-outline-secondary" onclick="myFunction()" type="button" id="button-addon2"><i class="fas fa-copy"></i></button>
-    													</div>
-    													
-    												</div>
-    													<small class="text-light"><strong>Network Type:</strong>{{data.name}}</small>
-												</div>
+<body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
 
-																						</div>
-																															<div>
-												<form method="post" action="" enctype="multipart/form-data">
-													{% csrf_token %}
-                                                    {% include 'messages.html' %} 
-													<div class="form-group">
-														<h5 class="text-light">Upload Payment proof after payment.</h5>
-														<input type="file" name="image" class="form-control col-lg-4 bg-dark text-light" required>
-													</div>
-													<input type="text" class="form-control myInput  text-dark bg-dark" name="price" placeholder="Amount" required>
-													<input type="hidden" name="name" value="{{data.name}}">
-													<input type="hidden" name="user" value="{{user.username}}">
-													<input type="hidden" name="wallet" value="{{data.wallet}}">
+<div class="wrapper">
 
-													<div class="form-group">
-														<input type="submit" class="btn btn-light" value="Submit Payment">
-													</div> 
-												</form>
-											</div>
-																												
-																		
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			<script>
-				function myFunction() {
-					/* Get the text field */
-					var copyText = document.getElementById("myInput");
-					/* Select the text field */
-					copyText.select();
-					copyText.setSelectionRange(0, 99999); /* For mobile devices */
-					/* Copy the text inside the text field */
-					document.execCommand("copy");
-					/* Alert the copied text */
-					//alert("Copied the text: " + copyText.value);
-					swal("Copied", copyText.value, "success");
-					}
-			</script>
-		
-    			
-			</div>
-		</div>
-	</div>
 
-	{% endblock content %}
+
+	{% include 'acc/side.html' %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="container-full">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+          <div class="d-flex align-items-center">
+              <div class="me-auto">
+                  <h4 class="page-title">Deposit</h4>
+                  <div class="d-inline-block align-items-center">
+                      <nav>
+                          <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                           <li class="breadcrumb-item" aria-current="page">Deposit</li>
+                              <li class="breadcrumb-item active" aria-current="page">Authenticate Payment</li>
+                          </ol>
+                      </nav>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+      <!-- Main content -->
+      <section class="content">			
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="card">
+                  <div class="card-header">
+                      <h4 class="card-title">Cold Wallet Deposit Address</h4>
+                  </div>
+                  <div class="card-body" id="deposits">
+                      <div class="tab-content">
+                        
+                          <div class="tab-pane fade show active" id="tab1">
+                              <div class="qrcode">
+                                  <img src="{{data.image.url}}" alt="" width="150">
+                              </div>
+                              <form action="" method="post">
+                                {% csrf_token %}
+                                    {% include 'messages.html' %} 
+                                  <div class="input-group">
+                                      <input type="text"  class="form-control"
+                                          value="{{data.wallet}}" id="myInput" readonly>
+                                      <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" onclick="myFunction()" type="button" id="button-addon2">copy</button>
+                                      </div>
+                                  </div>
+                                  <div class="input-group">
+                                    <input type="text" class="form-control"
+                                        name="price" placeholder="Amount">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-primary text-white">USD</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="name" value="{{data.name}}">
+                                <input type="hidden" name="wal" value="{{data.wallet}}">
+                                <div class="form-group mt-5">
+                                  <input type="submit" class="btn btn-success" value="Stake">
+                                </div> 
+                              </form>
+
+                              <ul>
+                                  <li>
+                                      <i class="mdi mdi-checkbox-blank-circle"></i>
+                                      {{data.name}} network transfers will be credited to your account after
+                                      25 network confirmations.
+                                  </li>
+                                  <li>
+                                      <i class="mdi mdi-checkbox-blank-circle"></i>
+                                      {{data.name}} deposits to this address are unlimited. Note that you may not
+                                      be able to withdraw all of your funds at once if you deposit more
+                                      than your daily withdrawal limit.
+                                  </li>
+                              </ul>
+                          </div>
+                        
+                         
+                      </div>
+                  </div>
+              </div>
+          </div>
+            
+            </div>	
+      </section>
+      <!-- /.content -->
+    </div>
+</div>
+  <!-- /.content-wrapper -->
+
+
+
+
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div>
+<!-- ./wrapper -->
+
+
+<script>
+  function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("myInput");
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+    /* Alert the copied text */
+    //alert("Copied the text: " + copyText.value);
+    swal("Copied", copyText.value, "success");
+    }
+</script>
+
+	<!-- Page Content overlay -->
+
+
+</body>
+
+{% endblock content %}
