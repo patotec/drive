@@ -90,7 +90,7 @@
 						<p class="pt-5 fs-14 mb-0 fw-700 text-primary">{{user.username}}</p>
 						<small class="fs-10 mb-0 text-uppercase text-mute">User</small>
 					</div>
-					<img src="/static/images/avatar/avatar-1.png" class="avatar rounded-10 bg-primary-light h-40 w-40" alt="" />
+					<img src="{{user.image.url}}" class="avatar rounded-10 bg-primary-light h-40 w-40" alt="" />
 				</div>
             </a>
             <ul class="dropdown-menu animated flipInX">
@@ -99,7 +99,7 @@
 				 <a class="dropdown-item" href="{% url 'userurl:with' %}"><i class="ti-wallet text-muted me-2"></i>  Withdraw</a>
 				 <a class="dropdown-item" href="{% url 'userurl:depo' %}"><i class="ti-wallet text-muted me-2"></i>Fund</a>
 				 <div class="dropdown-divider"></div>
-				 <a class="dropdown-item" href="{% url 'userurl:logout' %}"><i class="ti-lock text-muted me-2"></i> Logout</a>
+				 <a class="dropdown-item" href="{% url 'userurl:login' %}"><i class="ti-lock text-muted me-2"></i> Logout</a>
               </li>
             </ul>
           </li>

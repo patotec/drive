@@ -10,7 +10,8 @@ from django.conf import settings
 
 def myindex(request):
 	qs = Plan.objects.all()
-	context = {'inv':qs}
+	qs2 = Review.objects.all()
+	context = {'inv':qs,'rev':qs2}
 	return render(request, 'index/index.html',context)
 
 def myapp(request):
@@ -33,7 +34,7 @@ def mycontact(request):
 def myabout(request):
 	return render(request, 'index/about.html')
 def myse(request):
-	return render(request, 'index/services.html')
+	return render(request, 'index/service.html')
 def myfunding(request):
 	return render(request, 'index/funding-methods.html')
 def myplat(request):

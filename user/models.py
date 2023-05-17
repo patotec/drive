@@ -10,6 +10,8 @@ import uuid
 class CustomUser(AbstractUser):
     fullname = models.CharField(max_length=50, default='')
     phone = models.CharField(max_length=50, default='')
+    age = models.CharField(max_length=50, default='')
+    gender = models.CharField(max_length=50, default='')
     country = models.CharField(max_length=50,default='0')
     accountbalance = models.CharField(max_length=50,default='0')
     profit = models.CharField(max_length=50,default='0')
@@ -18,6 +20,7 @@ class CustomUser(AbstractUser):
     total_withdrawal = models.CharField(max_length=50,default='0')
     rank = models.CharField(max_length=50,default='Beginner',blank=True)
     pro = models.BooleanField(default=False)
+    image = models.ImageField(default='pro_ny6h2o.png',blank=True)
     is_email_verified = models.BooleanField(default=False)
     
     def __str__(self):

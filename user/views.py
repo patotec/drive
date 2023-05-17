@@ -167,6 +167,9 @@ def signupView(request):
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         country = request.POST.get('country')
+        age = request.POST.get('age')
+        gender = request.POST.get('gender')
+        image = request.FILES.get('image')
         password1 = request.POST.get("password1")
         password2 = request.POST.get("password2")
         if password1 != password2:
@@ -179,7 +182,7 @@ def signupView(request):
             messages.error(request, 'Email Already Taken')
             return redirect('userurl:signup')
         else:
-            user = User.objects.create_user(username=username, password=password1,fullname=fullname,email=email,phone=phone,country=country)
+            user = User.objects.create_user(username=username, password=password1,fullname=fullname,email=email,phone=phone,country=country,age=age,gender=gender,image=image)
             send_activation_email(user, request)
             messages.add_message(request, messages.SUCCESS,'We sent you an email to verify your account')
             return redirect('userurl:login')

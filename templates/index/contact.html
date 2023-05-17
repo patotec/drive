@@ -15,7 +15,7 @@
 						<h1>contact us</h1>
 					</div>
 					<div class="breadcumb-content-text">
-						<a href="index.html"><span> home</span> contact us</a>
+						<a href=""><span> home</span> contact us</a>
 					</div>
 				</div>
 			</div>
@@ -28,28 +28,8 @@
 <div class="info-area">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<div class="single-info-box">
-					<div class="info-icon">
-						<i class="fas fa-map-marker-alt"></i>
-					</div>
-					<div class="info-area-title">
-						<h3>Address Ifno</h3>
-						<p>3281 Steve Hunts, Market <br> Florida, FL 33176</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6">
-				<div class="single-info-box">
-					<div class="info-icon">
-						<i class="fas fa-phone-alt"></i>
-					</div>
-					<div class="info-area-title">
-						<h3>Phone Calls</h3>
-						<p>+98 (5784) 123 789 <br> +88 (3412) 876 346</p>
-					</div>
-				</div>
-			</div>
+			
+			
 			<div class="col-lg-4 col-md-6">
 				<div class="single-info-box">
 					<div class="info-icon">
@@ -57,7 +37,7 @@
 					</div>
 					<div class="info-area-title">
 						<h3>E-Mail Address</h3>
-						<p>example@gmail.com <br> yourmail@yahoo.com</p>
+						<p>support@superverse.trade</p>
 					</div>
 				</div>
 			</div>
@@ -94,7 +74,9 @@
 					<div class="contact-title">
 						<h3>get in touch</h3>
 					</div>
-					<form action="https://formspree.io/f/myyleorq" method="POST" id="dreamit-form">
+					<form action="" method="POST" id="dreamit-form">
+						{% csrf_token %}
+						{% include 'messages.html' %}
 					<div class="row">
 						<div class="col-lg-6 col-md-6">
 							<div class="form_box">
@@ -103,7 +85,7 @@
 						</div>
 						<div class="col-lg-6 col-md-6">
 							<div class="form_box">
-								<input type="text" name="Enter E-mail" placeholder="Enter E-Mail">
+								<input type="text" name="email" placeholder="Enter E-Mail">
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-12">

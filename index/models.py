@@ -10,9 +10,10 @@ class Contact(models.Model):
 	def __str__ (self):
 		return self.name
 
-class Team(models.Model):
+class Review(models.Model):
 	name = models.CharField(max_length=200)
 	image = models.ImageField()
+	body = models.TextField()
 
 	def __str__ (self):
 		return self.name

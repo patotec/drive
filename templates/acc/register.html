@@ -38,13 +38,13 @@
                     <div class="bg-white shadow card login-page roundedd border-1 ">
                         <div class="card-body">
                             <h4 class="text-center card-title">Create an Account</h4>
-                            <form method="POST"  class="mt-4 login-form">
+                            <form method="POST"  class="mt-4 login-form" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {% include 'messages.html' %}
                                   <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label>UserName <span class="text-danger">*</span></label>
+                                            <label>Username <span class="text-danger">*</span></label>
                                             <div class="position-relative">
                                                 <i data-feather="user" class="fea icon-sm icons"></i>
                                                 <input type="text" id="input1" class="pl-5 form-control"  name="username" id="input1" placeholder="Enter Unique Username" required>
@@ -56,7 +56,7 @@
                                     
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <label>FullName <span class="text-danger">*</span></label>
+                                            <label>Full Name <span class="text-danger">*</span></label>
                                             <div class="position-relative">
                                                 <i data-feather="user-check" class="fea icon-sm icons"></i>
                                                 <input type="text" class="pl-5 form-control"  name="fullname" value="" id="f_name" placeholder="Enter FullName" required>
@@ -93,6 +93,43 @@
                                     
                                     <div class="col-lg-12">
                                         <div class="form-group">
+                                            <label>Profile Pic <span class="text-danger">*</span></label>
+                                            <div class="position-relative">
+                                                <i data-feather="user" class="fea icon-sm icons"></i>
+                                                <input type="file" class="pl-5 form-control" name="image" placeholder="profile pic" required>
+                                                                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Age <span class="text-danger">*</span></label>
+                                            <div class="position-relative">
+                                                <i data-feather="key" class="fea icon-sm icons"></i>
+                                                <input type="text" class="pl-5 form-control" name="age" value="" id="confirm-password" placeholder="age" required>
+                                                                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label> Gender<span class="text-danger">*</span></label>
+                                            <div class="position-relative">
+                                                <i data-feather="key" class="fea icon-sm icons"></i>
+                                                <select class="pl-5 form-control text-dark" name="gender" id="country" required>
+                                                    <option selected disabled>Choose Gender</option>
+                                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="custom">Custom</option>
+                                                                  </select>
+                                                                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
                                             <label>Password <span class="text-danger">*</span></label>
                                             <div class="position-relative">
                                                 <i data-feather="key" class="fea icon-sm icons"></i>
@@ -101,8 +138,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end col-->
-                                    
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>Confirm Password <span class="text-danger">*</span></label>
