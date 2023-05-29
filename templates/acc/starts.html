@@ -113,11 +113,12 @@ s{% extends 'acc/base.html' %}
                 <div class="text-end">
                   <p class="no-margin"><input class=" form-control text-success" id="intrate" type="hidden" value="{{i.rate}}" style="border: none; background-color:none;"></p>
                 </div>
+                <button type="button" id="calculate" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-center">
+                  Stake
+                  </button>
                 </div>
               </div>	
-              <button type="button" id="calculate" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-center">
-  Stake
-  </button>
+       
   <div class="modal center-modal fade" id="modal-center" tabindex="-1">
 	  <div class="modal-dialog">
 		<div class="modal-content">
