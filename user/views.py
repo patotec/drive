@@ -123,7 +123,7 @@ def gain(request,id):
     return render(request, 'acc/gain.html',context)
 
 def plan(request):
-    qs = Upgrade.objects.all()
+    qs = Plan.objects.all()
     context = {'plan':qs}
     return render(request, 'acc/plan.html',context)
 

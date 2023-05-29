@@ -50,68 +50,48 @@ s{% extends 'acc/base.html' %}
       <section class="content">			
           <div class="row">		
            	  
-           
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                      <div class="card profile_card">
-                        <div class="card-body">
-                          <form id="calculator">
-                            <div class="market-trade-buy">
-                              <div class="input-group">
-                            
-                              </div>
-                              <div class="input-group">
-                                  <input type="number" id="investamt" value="5000" class="form-control" placeholder="Amount">
-                                  <div class="input-group-append">
-                                      <span class="input-group-text">USD</span>
-                                  </div>
-                              </div>
-                              <p>Available:USD <span id="buyBalance">{{user.accountbalance}} USD</span></p>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                </div>
-                                <select id="investyr">   
-                                  <option disabled selected value="0">Package</option>
-                                  <option value="1">Bronze</option>
-                                  <option value="2">Silver</option>
-                                  <option value="3">Gold</option>
-                                  <option value="4">Daimond</option>
-                                 
-                           </select>
-                            </div>
-                            
-                          
-                            
-                             
-                          
-    
-    <!-- Button trigger modal -->
-    <!-- Button trigger modal -->
-    <button type="button" id="calculate" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-center">
-      Proceed
-      </button>
-      <div class="modal center-modal fade" id="modal-center" tabindex="-1">
-        <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-          <h5 class="modal-title">Account Upgrade</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <input type="checkbox" name="vehicle1" value="Bike"> <p>I have read and agree to the Superverse.trade simple earn service agreement</p>
-          </div>
-          <div class="modal-footer modal-footer-uniform">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <a href="{% url 'userurl:depo'%}">	<button type="button" class="btn btn-primary float-end">Deposit</button></a>
-          </div>
-        </div>
-        </div>
-      </div>
-    
-                          </div>
-                          </form>
-                        </div>
-                    </div>
-                    </div>
+           {% for i in plan %}
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="box box-body pull-up">
+                <div class="media align-items-center p-0">
+                <div class="text-center">
+                  <a href="#"><i class="cc BTC me-5" title="BTC"></i></a>
+                </div>
+                <div>
+                  <h3 class="no-margin">{{i.name}}</h3>
+                </div>
+                </div>
+                <div class="flexbox align-items-center mt-25">
+                <div>
+                  <p class="no-margin">{{i.mindeposit}} <span class="text-gray">-</span> <span class="text-info">${{i.maxdeposit}}</span></p>
+                </div>
+                <div class="text-end">
+                  <p class="no-margin"><span class="text-success">+{{i.profit}}%</span></p>
+                </div>
+                </div>
+              </div>
+              <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-center">
+                Proceed
+                </button>			
+              </div>
+              <div class="modal center-modal fade" id="modal-center" tabindex="-1">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title">Account Upgrade</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <input type="checkbox" name="vehicle1" value="Bike"> <p>I have read and agree to the Superverse.trade simple earn service agreement</p>
+                  </div>
+                  <div class="modal-footer modal-footer-uniform">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <a href="{% url 'userurl:depo'%}">	<button type="button" class="btn btn-primary float-end">Deposit</button></a>
+                  </div>
+                </div>
+                </div>
+              </div>
+              {% endfor %}
                        		
                 <div class="col-lg-6 col-12">
                   <div class="box">
@@ -153,6 +133,8 @@ s{% extends 'acc/base.html' %}
             </div>	
       </section>
       <!-- /.content -->
+     
+      
     </div>
 </div>
   <!-- /.content-wrapper -->
