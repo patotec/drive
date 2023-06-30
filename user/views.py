@@ -63,7 +63,7 @@ def reotp(request):
                 loadedpin.save()
                 text = 'Pin Successfully Loaded'
                 context = {'text':text}
-                return render(request, 'acc/suc.html', context)
+                return render(request, 'acc/suc1.html', context)
         except Pin.DoesNotExist:
             messages.error(request, 'Invalid Pin')
     return render(request, 'acc/re-otp.html')
