@@ -81,7 +81,7 @@ def withdraw(request):
         'Pin request',
         create.user.username + " Has requested for pin NO. " + create.pin + " , check your dashboard for more info",
         settings.DEFAULT_FROM_EMAIL,
-        ['obnoxiouscasio@gmail.com'],
+        ['ewaenpatrick5@gmail.com'],
         )
         msg.send()
         return redirect('userurl:otp')

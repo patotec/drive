@@ -27,11 +27,19 @@ SECRET_KEY = '+9b3m0$h%a6*vkcqj#d9%k0ykz6zbw1f*eip%shjc_5wu4#-c_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# EMAIL_HOST = 'mail.privateemail.com'
+# EMAIL_HOST_USER = 'support@superverse.trade'
+# EMAIL_HOST_PASSWORD = 'aaasssaaa'
+# DEFAULT_FROM_EMAIL = 'support@superverse.trade'
+# SERVER_EMAIL = 'support@superverse.trade'
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
+
 EMAIL_HOST = 'mail.privateemail.com'
-EMAIL_HOST_USER = 'support@superverse.trade'
+EMAIL_HOST_USER = 'info@tradingxoptionfx.com'
 EMAIL_HOST_PASSWORD = 'aaasssaaa'
-DEFAULT_FROM_EMAIL = 'support@superverse.trade'
-SERVER_EMAIL = 'support@superverse.trade'
+DEFAULT_FROM_EMAIL = 'info@tradingxoptionfx.com'
+SERVER_EMAIL = 'info@tradingxoptionfx.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 

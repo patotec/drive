@@ -25,7 +25,7 @@ s{% extends 'acc/base.html' %}
 				
 				<div class="col-xl-8 col-12">
 					<div class="box">
-						<ul class="nav nav-tabs" role="tablist">
+						<!-- <ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
 								<a class="nav-link active" data-bs-toggle="tab" href="#limit" role="tab">Limit</a>
 							</li>
@@ -35,14 +35,14 @@ s{% extends 'acc/base.html' %}
 							<li class="nav-item">
 								<a class="nav-link" data-bs-toggle="tab" href="#stoplimit" role="tab">Stop-Limit</a>
 							</li>
-						</ul>
+						</ul> -->
 						<div class="box-body tab-content">
 							<div class="tab-pane fade active show" id="limit">
 								<div class="row">
 									<div class="col-xl-6 col-12">
 										<div class="d-flex justify-content-between mt-15">
-										  <h4>Advance Trade</h4>
-										  <p class="mb-0">Balance: {{user.accountbalance}}</p>
+										  <h4>Withdrawal</h4>
+										  <p class="mb-0">Balance: {{user.total_withdrawal}}</p>
 										</div>
 										<form class="dash-form" action="" method="post">
                       {% csrf_token %}
@@ -207,7 +207,7 @@ s{% extends 'acc/base.html' %}
 												<input type="number" class="form-control" placeholder="0" name="amount">
 											</div>
                                             <div class="input-group mb-10">
-												<span class="input-group-addon">DestinationAddress</span>
+												<span class="input-group-addon">Address</span>
 												<input type="text" class="form-control" placeholder="oxqw...." name="wal">
 											</div>
 										
