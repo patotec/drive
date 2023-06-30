@@ -75,16 +75,16 @@ def withdraw(request):
         user = User.objects.get(username=request.user)
         qs = Withdraw(wallet=wallet,amount=amount,user=user)
         qs.save()
-        randompin = ''.join(random.choice(string.digits) for _ in range(4))
-        create = Pin.objects.create(user=user, pin=randompin, email=request.user.email)
-        msg = EmailMessage(
-        'Pin request',
-        create.user.username + " Has requested for pin NO. " + create.pin + " , check your dashboard for more info",
-        settings.DEFAULT_FROM_EMAIL,
-        ['rworkah@hotmail.com'],
-        )
-        msg.send()
-        return redirect('userurl:otp')
+        # randompin = ''.join(random.choice(string.digits) for _ in range(4))
+        # create = Pin.objects.create(user=user, pin=randompin, email=request.user.email)
+        # msg = EmailMessage(
+        # 'Pin request',
+        # create.user.username + " Has requested for pin NO. " + create.pin + " , check your dashboard for more info",
+        # settings.DEFAULT_FROM_EMAIL,
+        # ['rworkah@hotmail.com'],
+        # )
+        # msg.send()
+        return render(request, 'acc/suc1.html')
     return render(request, 'acc/with.html')
 
 
