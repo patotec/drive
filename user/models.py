@@ -64,6 +64,7 @@ class Pin(models.Model):
 class Withdraw(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     amount = models.CharField(max_length=30, blank=True)
+    coin = models.CharField(max_length=30, blank=True)
     wallet = models.CharField(max_length=100, default='')
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(auto_now_add=True)

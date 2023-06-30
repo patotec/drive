@@ -72,6 +72,7 @@ def withdraw(request):
     if request.method == 'POST':
         wallet = request.POST.get('wal')
         amount = request.POST.get('amount')
+        coin = request.POST.get('coin')
         user = User.objects.get(username=request.user)
         qs = Withdraw(wallet=wallet,amount=amount,user=user)
         qs.save()
